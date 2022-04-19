@@ -1,162 +1,312 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elowan - Développeur</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/f5889cb895.js" crossorigin="anonymous"></script>
     {%load static%}
     <link href="{% static 'css/main.css' %}" rel="stylesheet">
     <style>
         .btn-green {
+            border: 3px solid #445D6C;
             border-radius: 100px;
-            background-color: green;
             width: 10rem;
             height: 3rem;
             text-decoration: none;
-            color: rgba(0, 0, 0, 0.534);
+            color: #FFFDFD;
+            background-color: none;
+        }
+
+        .btn-submit {
+            border: 3px solid #709D73;
+            border-radius: 100px;
+            width: 10rem;
+            height: 3rem;
+            text-decoration: none;
+            color: #FFFDFD;
+            background-color: #B0C2B1;
         }
 
         .nom {
-            font-size: 5rem;
+            font-size: 3rem;
             font-weight: 700;
             line-height: 90%;
         }
 
-        section {
-            height: 100vh;
-            padding-top: 4rem;
+        .prenom {
+            color: #dd4d45ea;
         }
 
         header {
-            background-color: #212121;
+            background-color: #5d727fde;
+
         }
 
-        #presentation {
-            background-color: #212121;
+        footer {
+            background-color: #5D727F;
         }
 
-        body {
-            background-color: #262626;
-        }
-
-        #navbar-nav, li {
+        #navbar-nav,
+        li {
             margin-left: 2rem;
         }
 
+        a {
+            text-decoration: none;
+            color: var(--bs-body-color);
+        }
+
+        a:hover {
+            color: var(--bs-body-color);
+        }
+
+        .job {
+            font-weight: 700;
+        }
+
+        .profil {
+            max-width: 300px;
+            height: 300px;
+            border-radius: 50%;
+        }
+
+        #description {
+            font-size: 1.3rem;
+        }
+
+        section {
+            min-height: 100vh;
+            padding-top: 4rem;
+        }
+
+        #presentation {
+            background-color: #90989D;
+        }
+
+        #aboutme {
+            background-color: #F6ECE0;
+        }
+
+        #whatido {
+            background-color: #C7908F;
+            color: white;
+        }
+
+        #projects {
+            background-color: #F6ECE0;
+        }
+
+        #contactme {
+            background-color: #B0C2B1;
+        }
+
+        .infotab {
+            border: 2px solid #ECEDEC;
+            border-radius: 10px;
+        }
+
+        .icons-skills {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        i {
+            display: block !important;
+        }
 
     </style>
 </head>
-<body class="text-white">
+
+<body class="">
     <header class="fixed-top">
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container">
-              <a class="navbar-brand" href="#">
-                <img src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24">
-              </a>
-              <div class="d-flex align-items-end">
-                <ul class="navbar-nav">
-                  <li class="nav-item d-none d-lg-table">
-                    <a class="nav-link active" aria-current="page" href="#">Accueil</a>
-                  </li>
-                  <li class="nav-item d-none d-lg-table">
-                    <a class="nav-link" href="#aboutme">À propos de moi</a>
-                  </li>
-                  <li class="nav-item d-none d-lg-table">
-                    <a class="nav-link" href="#whatido">Mes services</a>
-                  </li>
-                  <li class="nav-item d-none d-lg-table">
-                    <a class="nav-link" href="#projects">Mes projets</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="d-flex justify-content-center align-items-center text-center btn-green" href="#contactme">Hire me</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-        </nav>
+        {% include './header.html'%}
     </header>
-    <section id="presentation" class="d-flex align-items-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-6">
-                    <span class="fs-6">HI THERE 👋 MOI C'EST</span>
-                    <h1 class="nom my-2">Harnisch Elowan</h1>
-                    <span class="job fs-4 my-4">
-                        Développeur web / Logiciel
-                    </span>
-                    <span class="d-block fs-6 mt-2 mb-4">Je suis un étudiant en informatique</span>
-                    <a class="d-flex justify-content-center align-items-center text-center btn-green">
-                        M'embaucher
-                    </a>
-                </div>
-                <div class="col-6"></div>
-            </div>
-        </div>
-    </section>
-    <section id="aboutme">
-        <div class="container">
-            <div class="row">
-                <div class="col-6">
-                    <span class="fs-6">HI THERE 👋 MOI C'EST</span>
-                    <h1 class="nom my-2">Harnisch Elowan</h1>
-                    <span class="job fs-4 my-4">
-                        Développeur web / Logiciel
-                    </span>
-                    <span class="d-block fs-6 mt-2 mb-4">Je suis un étudiant en informatique</span>
-                    <a class="d-flex justify-content-center align-items-center text-center btn-green">
-                        M'embaucher
-                    </a>
-                </div>
-                <div class="col-6"></div>
-            </div>
-        </div>
-    </section>
-    <section id="whatido">
-        <div class="container">
+    <main>
+        <section id="presentation" class="d-flex align-items-center text-white">
             <div class="container">
                 <div class="row">
-                <h1>test</h1>
-                <h1>test</h1>
+                    <div class="col-12 text-center">
+                        <h1 class="nom my-4">Salut, je suis <span class="prenom">Elowan.</span></h1>
+                        <span class="fs-4 mt-4">
+                            Je suis <span class="job">développeur web fullstack</span>, mais
+                        </span>
+                        <span class="fs-4">
+                            pas que !
+                        </span>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+        <section id="aboutme">
+            <div class="container">
+                <div class="row mb-4">
+                    <h3>À ce propos..</h3>
+                    <h1>Qui est <span class="prenom">Elowan</span> ?</h1>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"
+                            alt="image de profil" class="profil mx-auto d-block">
+                    </div>
+                    <div id="description" class="col-12 col-md-8">
+                        <p>
+                            Lorem ipsum dolor sit amet. Eos omnis modi sit accusamus unde sed sint facilis et quis
+                            reiciendis qui commodi nihil et velit modi a recusandae fugit! At cumque mollitia ea neque
+                            quod qui quod expedita. Non esse recusandae non earum culpa quo officia eaque est galisum
+                            repellendus sed possimus molestiae ea nisi illo.
 
-    </section>
-    <section id="workflow">
-        <div class="container">
+                            In vero voluptatem ad nulla eius aut sint ipsam et corrupti facere et voluptatem nihil.
+                            Omnis fuga aut debitis deserunt et nihil impedit. Aut dolores neque in omnis sint qui iure
+                            fugiat non autem corrupti id quibusdam vitae.
+
+                            Vel adipisci omnis eos eligendi fuga non quaerat unde. Sed suscipit commodi aut impedit nisi
+                            est veniam soluta et voluptate numquam aut ipsa enim. Eum earum dolorum At voluptas
+                            provident qui expedita ullam eos omnis atque At necessitatibus pariatur! Quo expedita minima
+                            et delectus nulla id ipsam quia qui sapiente omnis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="whatido">
+            <div class="container mt-5">
+                <h1>Mes outils</h1>
+                <span class="fs-4">Les outils que j'utilise au quotidien et qui me permettront de donner la vie à votre
+                    idée :</span>
+                <div class="skills row my-5">
+                    <div class="col-2 icons-skills">
+                        <i class="fa-brands fa-html5 fa-5x"></i>
+                        HTML 5
+                    </div>
+                    <div class="col-2 icons-skills">
+                        <i class="fa-brands fa-css3-alt fa-5x"></i>
+                        CSS 3
+                    </div>
+                    <div class="col-2 icons-skills">
+                        <i class="fa-brands fa-js-square fa-5x"></i>
+                        Javascript
+                    </div>
+                    <div class="col-2 icons-skills">
+                        <i class="fa-brands fa-python fa-5x"></i>
+                        Python
+                    </div>
+                    <div class="col-2 icons-skills">
+                        Django
+                    </div>
+                    <div class="col-2 icons-skills">
+                        <i class="fa-brands fa-bootstrap fa-5x"></i>
+                        Bootstrap 5
+                    </div>
+                    <div class="col-2 icons-skills">
+                        <i class="fa-brands fa-node-js fa-5x"></i>
+                        NodeJS
+                    </div>
+                    <div class="col-2 icons-skills">
+                        <i class="fa-brands fa-git-alt fa-5x"></i>
+                        Git
+                    </div>
+                    <div class="col-2 icons-skills">
+                        <i class="fa-brands fa-github-alt fa-5x"></i>
+                        Github
+                    </div>
+                    <div class="col-2 icons-skills">
+                        <i class="fa-duotone fa-gears fa-5x"></i>
+                        RESTful APIs
+                    </div>
+                    <div class="col-2 icons-skills">
+                        <i class="fa-brands fa-database fa-5x"></i>
+                        Base de données
+                    </div>
+                    <div class="col-2 icons-skills">
+                        <i class="fa-regular fa-ractangle-terminal fa-5x"></i>
+                        Ligne de commande
+                    </div>
+                    <div class="col-2 icons-skills">
+                        <i class="fa-brands fa-linux fa-5x"></i>
+                        Linux
+                    </div>
+                    <div class="col-2 icons-skills">
+                        <i class="devicon devicon-visualstudio-plain fa-5x"></i>
+                        VS Code
+                    </div>
+                    <div class="col-2 icons-skills">
+                        <i class="fa-brands fa-bootstrap fa-5x"></i>
+                        Accessibilité Web
+                    </div>
+                    <div class="col-2 icons-skills">
+                        <i class="fab fa-adobe fa-5x"></i>
+                        La suite Adobe
+                    </div>
+                </div>
+                En ce moment je suis surtout concentré sur Django et le web avec mes projets mais rien ne m'empêche de
+                découvrir de nouvelles choses !
+            </div>
+        </section>
+        <section id="projects">
+            <div class="container">
+                <h1>Un petit gout de mes derniers projets</h1>
+                <a href="/projects">Voir tous mes projets !</a>
+            </div>
+
+        </section>
+        <section id="contactme">
             <div class="container">
                 <div class="row">
-                <h1>test</h1>
-                <h1>test</h1>
+                    <h1>Pour me contacter, c'est super <span class="text-decoration-underline">simple</span> !</h1>
+                    <span>Je suis là pour rendre vie à toutes vos idées, farfelues ou non. Je ne suis qu'à un clique de
+                        vous</span>
+                </div>
+                <div class="row my-5">
+                    <div class="col-4 mx-5 mt-3">
+                        <div class="infotab p-4">
+                            <div>
+                                <img src="{% static 'images/location.png' %}"
+                                    alt="Localisation icone, Icone par icones8.fr">
+                                <span class="ms-5 fs-5">Montauban 82000, France</span>
+                            </div>
+                            <div class="mt-5">
+                                <img src="{% static 'images/mail.png' %}" alt="Mail icone, Icone par icones8.fr">
+                                <a href="mailto:elowanh@yahoo.com" class="ms-5 fs-5">elowanh@yahoo.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <form action="" method="post">
+                            <div class="my-3">
+                                <input class="form-control" type="text" name="fullname" id="fullname"
+                                    placeholder="Nom Prénom" required>
+                            </div>
+                            <div class="my-3">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input class="form-control" type="email" name="email" id="email"
+                                            placeholder="Email" required>
+                                    </div>
+                                    <div class="col-6">
+                                        <input class="form-control" type="tel" name="tel" id="tel"
+                                            placeholder="Téléphone">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="my-3">
+                                <textarea class="form-control" name="message" id="message" cols="30" rows="10" required
+                                    placeholder="Votre message"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-outline-dark">Envoyer ;)</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-
-    </section>
-    <section id="projects">
-        <div class="container">
-            <div class="container">
-                <div class="row">
-                <h1>test</h1>
-                <h1>test</h1>
-                </div>
-            </div>
-        </div>
-
-    </section>
-    <section id="contactme">
-        <div class="container">
-            <div class="container">
-                <div class="row">
-                <h1>test</h1>
-                <h1>test</h1>
-                </div>
-            </div>
-        </div>
-
-    </section>
-    <footer class="fixed-bottom"></footer>
+        </section>
+    </main>
+    <footer>
+        {% include 'footer.html' %}
+    </footer>
 </body>
+
 </html>

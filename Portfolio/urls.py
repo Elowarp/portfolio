@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from vitrine.views import index
+from vitrine.views import index, projects
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index)
+    path('', index),
+    path('projects/', projects),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
