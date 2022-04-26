@@ -117,6 +117,72 @@
             background-color: #F6ECE0;
         }
 
+        .angle {
+            position: relative;
+        }
+
+        .angle:after {
+            content: '';
+            position: absolute;
+        }
+
+        .angle1 {
+            background-color: #C7908F;
+        }
+
+        .angle1:after {
+            background-color: #F6ECE0;
+            -webkit-clip-path: polygon(0 0, 100% 0, 25% 100%);
+                    clip-path: polygon(0 0, 100% 0, 25% 100%);
+            height: 25px;
+            width: 100%
+        }
+
+        @media (min-width: 900px) {
+            .angle1,
+            .angle1:after {
+                height: 75px;
+            }
+        }
+
+        .angle2 {
+            background-color: #F6ECE0;
+        }
+
+        .angle2:after {
+            background-color: #C7908F;
+            -webkit-clip-path: polygon(0 0, 25% 75%, 75% 25%, 100% 50%, 100% 0);
+                    clip-path: polygon(0 0, 25% 75%, 75% 25%, 100% 50%, 100% 0);
+            height: 20px;
+            width: 100%
+        }
+
+        @media (min-width: 900px) {
+            .angle2,
+            .angle2:after {
+                height: 70px;
+            }
+        }
+
+        .angle3 {
+            background-color: #B0C2B1;
+        }
+
+        .angle3:after {
+            background-color: #F6ECE0;
+            -webkit-clip-path: polygon(0 0, 75% 100%, 100% 50%, 100% 0);
+                    clip-path: polygon(0 0, 75% 100%, 100% 50%, 100% 0);
+            height: 20px;
+            width: 100%
+        }
+
+        @media (min-width: 900px) {
+            .angle3,
+            .angle3:after {
+                height: 70px;
+            }
+        }
+
         #whatido {
             background-color: #C7908F;
         }
@@ -253,6 +319,7 @@
                 </div>
             </div>
         </section>
+        <div class="angle angle1"></div>
         <section id="whatido">
             <div class="container py-5">
                 <h1>Mes outils / Hardskills</h1>
@@ -331,12 +398,15 @@
                     </div>
                 </div>
                 <div class="row px-5">
-                    <div class="col-2 d-none d-md-flex">
+                    <div class="col-12 col-lg-2 col-md-3 d-none d-md-flex">
                         <img src="{% static 'images/england.png'%}" alt="Drapeau anglais" style="width:11rem"
                             class="float-start">
 
                     </div>
-                    <div class="col-12 col-md-10 m-auto">
+                    <div class="col-md-1">
+                        <div class="w-100"></div>
+                    </div>
+                    <div class="col-12 col-md-8 col-lg-9 m-auto">
                         <span id="english" class="fs-4">J'ai aussi un niveau <span style="color:#FFFDFD">C2 en
                                 anglais</span> ce qui me permet de très bien travailler
                             avec des collaborateurs à l'international.</span>
@@ -344,6 +414,7 @@
                 </div>
             </div>
         </section>
+        <div class="angle angle2"></div>
         <section id="projects">
             <div class="container py-5">
                 <h1>Mes derniers projets à l'affiche!</h1>
@@ -356,7 +427,7 @@
                                 class="card-img" alt="{{project.image}}">
                             <div class="card-img-overlay">
                                 <h5 class="card-title">{{project.title}}</h5>
-                                <p class="card-text">{{project.article}}... Voir plus</p>
+                                <p class="card-text">{{project.article}}...</p>
                                 <p class="card-text">{{project.date}}</p>
                             </div>
                         </div>
@@ -364,13 +435,14 @@
                     {% endfor %}
                 </div>
                 <div class="row mt-5">
-                    <span class="fs-4 text-center">Et d'autres sont encore à venir !! En attendant vous pouvez allez
+                    <span class="fs-4 text-center">Et d'autres sont encore à venir !! <!--En attendant vous pouvez allez
                         voir mes autres projets sur la page dédiée <a href="/projects"
-                            style="color:#455D6C">ici</a>.</span>
+                            style="color:#455D6C">ici</a>.--></span>
                 </div>
             </div>
 
         </section>
+        <div class="angle angle3"></div>
         <section id="contactme">
             <div class="container py-5">
                 <div class="row mb-5">
@@ -379,16 +451,16 @@
                         vous</span>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-lg-4 mx-lg-5 mt-3">
+                    <div class="col-12 col-lg-4 mx-lg-3 mt-3">
                         <div class="infotab p-4">
                             <div>
                                 <img src="{% static 'images/location.png' %}"
                                     alt="Localisation icone, Icone par icones8.fr">
-                                <span class="ms-5 fs-5">Montauban 82000, France</span>
+                                <span class="ms-3 fs-6">Montauban 82000, France</span>
                             </div>
                             <div class="mt-5">
                                 <img src="{% static 'images/mail.png' %}" alt="Mail icone, Icone par icones8.fr">
-                                <a href="mailto:elowanh@yahoo.com" class="ms-5 fs-5">elowanh@yahoo.com</a>
+                                <a href="mailto:elowanh@yahoo.com" class="ms-3 fs-6">elowanh@yahoo.com</a>
                             </div>
                         </div>
                     </div>
