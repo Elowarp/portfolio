@@ -3,6 +3,7 @@ from .models import Project
 from .forms import ClientForm
 from django.shortcuts import redirect
 from django.contrib import messages
+from .sendTelegram import send
 
 # Create your views here.
 def index(request):
@@ -12,6 +13,7 @@ def index(request):
         form = ClientForm(request.POST)
         if form.is_valid():
             form.save()
+            send("Tu as reçu une nouvelle demande sur le site bg!")
             messages.success(request, "Message envoyé !")
 
         else :
