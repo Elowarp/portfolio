@@ -87,7 +87,8 @@
             height: 300px;
             border-radius: 50%;
             overflow: hidden;
-            position: relative
+            position: relative;
+            box-shadow: -1px 3px 7px black;
         }
 
         .profil-img {
@@ -260,6 +261,13 @@
         .red {
             color: #c62d24;
         }
+
+        .list-group-item {
+            background: none;
+            border: 0;
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
     </style>
 </head>
 
@@ -292,7 +300,7 @@
                 <div class="row mb-5">
                     <div class="col-12 col-md-4 mb-3">
                         <div class="profil mx-auto d-block">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"
+                            <img src="{% static 'images/profile.png'%}"
                                 alt="image de profil" class="profil-img ">
                         </div>
 
@@ -312,9 +320,9 @@
 
                         <p>Je suis en classe de terminal dans un lycée de Montauban 🇫🇷 avec un apprentissage tourné
                             sur le numérique et les sciences. Mais heureusement pour moi, je ne fais pas que ça de ma
-                            vie. Je pratique en parallèle le VolleyBall🏐 ainsi que le Parkour/Freerunning depuis 4 ans.
+                            vie. Je pratique en parallèle le VolleyBall 🏐 ainsi que le Parkour/Freerunning depuis 4 ans.
                             Pendant le reste de mon temps libre, j'aime bien pratiquer de la guitare même si pour le
-                            moment je me verrai pas animer un concert de Jazz🎶.</p>
+                            moment je me verrai pas animer un concert de Jazz 🎶.</p>
                     </div>
                 </div>
             </div>
@@ -427,8 +435,8 @@
                                 class="card-img" alt="{{project.image}}">
                             <div class="card-img-overlay">
                                 <h5 class="card-title">{{project.title}}</h5>
-                                <p class="card-text">{{project.article}}...</p>
-                                <p class="card-text">{{project.date}}</p>
+                                <p class="card-text">{{project.article}}</p>
+                                <p class="card-text">{{project.date|date:"M Y"}}</p>
                             </div>
                         </div>
                     </div>
