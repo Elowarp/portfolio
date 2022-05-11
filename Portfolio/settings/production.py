@@ -17,3 +17,7 @@ DATABASES = {
 INSTALLED_APPS += (
     'gunicorn',
 )
+
+ALLOWED_HOSTS = ['127.0.0.0', 'localhost']
+
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")

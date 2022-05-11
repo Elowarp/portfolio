@@ -25,3 +25,6 @@ def index(request):
 
 def projects(request):
     return render(request, "projects.html")
+
+def mentionsLegales(request):
+    return render(request, "mentionsLegales.html")

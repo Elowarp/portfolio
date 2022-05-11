@@ -1,0 +1,256 @@
+{% load static %}
+@font-face {
+    font-family: 'Segoe Script';
+    src: url("/static/fonts/segoesc.ttf");
+}
+.btn-contact {
+    border: 3px solid #445D6C;
+    border-radius: 100px;
+    width: 10rem;
+    height: 3rem;
+    text-decoration: none;
+    color: #FFFDFD;
+    background-color: none;
+}
+
+.btn-contact:hover {
+    color: #FFFDFD;
+}
+
+.btn-submit {
+    border: 3px solid #709D73;
+    border-radius: 100px;
+    width: 10rem;
+    height: 3rem;
+    text-decoration: none;
+    color: #FFFDFD;
+    background-color: #B0C2B1;
+}
+
+.nom {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 90%;
+}
+
+body {
+    color: #212529;
+}
+
+.prenom {
+    color: #dd4d45ea;
+}
+
+header {
+    background-color: #5d727fde;
+
+}
+
+footer {
+    background-color: #5D727F;
+}
+
+#navbar-nav,
+li {
+    margin-left: 2rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--bs-body-color);
+}
+
+a:hover {
+    color: var(--bs-body-color);
+}
+
+.job {
+    font-weight: 700;
+}
+
+.profil {
+    max-width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: -1px 3px 7px black;
+}
+
+.profil-img {
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+    width: 400px;
+}
+
+#description {
+    font-size: 1.4rem;
+}
+
+section {
+    min-height: 100vh;
+    padding-top: 4rem;
+}
+
+#presentation {
+    background-color: #90989D;
+}
+
+#aboutme {
+    background-color: #F6ECE0;
+}
+
+.angle {
+    position: relative;
+}
+
+.angle:after {
+    content: '';
+    position: absolute;
+}
+
+.angle1 {
+    background-color: #C7908F;
+}
+
+.angle1:after {
+    background-color: #F6ECE0;
+    -webkit-clip-path: polygon(0 0, 100% 0, 25% 100%);
+            clip-path: polygon(0 0, 100% 0, 25% 100%);
+    height: 25px;
+    width: 100%
+}
+
+@media (min-width: 900px) {
+    .angle1,
+    .angle1:after {
+        height: 75px;
+    }
+}
+
+.angle2 {
+    background-color: #F6ECE0;
+}
+
+.angle2:after {
+    background-color: #C7908F;
+    -webkit-clip-path: polygon(0 0, 25% 75%, 75% 25%, 100% 50%, 100% 0);
+            clip-path: polygon(0 0, 25% 75%, 75% 25%, 100% 50%, 100% 0);
+    height: 20px;
+    width: 100%
+}
+
+@media (min-width: 900px) {
+    .angle2,
+    .angle2:after {
+        height: 70px;
+    }
+}
+
+.angle3 {
+    background-color: #B0C2B1;
+}
+
+.angle3:after {
+    background-color: #F6ECE0;
+    -webkit-clip-path: polygon(0 0, 75% 100%, 100% 50%, 100% 0);
+            clip-path: polygon(0 0, 75% 100%, 100% 50%, 100% 0);
+    height: 20px;
+    width: 100%
+}
+
+@media (min-width: 900px) {
+    .angle3,
+    .angle3:after {
+        height: 70px;
+    }
+}
+
+#whatido {
+    background-color: #C7908F;
+}
+
+#projects {
+    background-color: #F6ECE0;
+}
+
+#contactme {
+    background-color: #B0C2B1;
+}
+
+.infotab {
+    border: 2px solid #ECEDEC;
+    border-radius: 10px;
+}
+
+.icons-skills {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: white;
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+.icons-skills:hover {
+    transform: scale(1.1);
+}
+
+i {
+    display: block !important;
+    margin-bottom: 10px;
+}
+
+.text-icon {
+    color: #193444;
+}
+
+.card {
+    min-height: 200px;
+    max-height: 300px;
+    overflow: hidden;
+    cursor: pointer;
+    transition-property: transform;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-img {
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+    filter: brightness(50%)
+}
+
+.card-img-overlay {
+    text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+}
+
+#quick-desc {
+    font-size: 1.6rem;
+    font-style: italic;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #193444;
+}
+
+.red {
+    color: #c62d24;
+}
+
+.list-group-item {
+    background: none;
+    border: 0;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
