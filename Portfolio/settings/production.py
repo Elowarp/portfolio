@@ -18,6 +18,6 @@ INSTALLED_APPS += (
     'gunicorn',
 )
 
-ALLOWED_HOSTS = ['127.0.0.0', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.0', 'localhost', 'www.elowarp.fr']
 
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
