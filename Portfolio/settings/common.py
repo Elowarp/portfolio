@@ -128,3 +128,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+APPEND_SLASH = False
+
+HELLOWEEK_URL = '/dist/'
+HELLOWEEK_ROOT = os.path.join(BASE_DIR, 'HelloWeek/dist')

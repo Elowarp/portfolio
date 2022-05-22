@@ -17,6 +17,11 @@ class Client(models.Model):
     phone = models.IntegerField(blank=True, null=True)
     message = models.TextField(max_length=1000)
 
+class PageExemple(models.Model):
+    name = models.CharField(max_length=50)
+    image = models.ImageField(upload_to="sites/")
+    page = models.CharField(max_length=50)
+
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ['author', 'title', 'date']
     list_filter = ['author', 'title', 'date']
@@ -24,3 +29,7 @@ class ProjectAdmin(admin.ModelAdmin):
 class ClientAdmin(admin.ModelAdmin):
     list_display = ['fullname', 'email']
     list_filter = ['fullname', 'email']
+
+class PageExempleAdmin(admin.ModelAdmin):
+    list_display = ['name', 'page']
+    list_filter = ['name', 'page']

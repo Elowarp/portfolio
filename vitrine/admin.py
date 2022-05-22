@@ -4,3 +4,4 @@ from .models import *
 
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Client, ClientAdmin)
+admin.site.register(PageExemple, PageExempleAdmin)

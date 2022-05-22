@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from vitrine.views import index, projects, mentionsLegales
+from vitrine.views import index, projects, mentionsLegales, siteExemple
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -24,4 +24,6 @@ urlpatterns = [
     path('', index),
     path('projects/', projects),
     path('legal/', mentionsLegales),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('sites', siteExemple),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(
+    settings.HELLOWEEK_URL, document_root=settings.HELLOWEEK_ROOT)

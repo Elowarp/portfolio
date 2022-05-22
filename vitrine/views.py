@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from .models import Project
+from .models import Project, PageExemple
 from .forms import ClientForm
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.contrib import messages
 from .sendTelegram import send
 
@@ -28,3 +28,13 @@ def projects(request):
 
 def mentionsLegales(request):
     return render(request, "mentionsLegales.html")
+
+def siteExemple(request):
+    if request.method == "GET":
+        id = request.GET.get("id", False)
+        print(id)
+        if id:
+            page = get_object_or_404(PageExemple, pk=id)
+            return render(request, "sites/"+page.page)
+
+    return redirect("/")
