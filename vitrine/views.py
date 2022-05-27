@@ -7,7 +7,7 @@ from .sendTelegram import send
 
 # Create your views here.
 def index(request):
-    projects = Project.objects.all().order_by('-date')[:4]
+    pages = PageExemple.objects.all().order_by("-date")
 
     if request.method == "POST":
         form = ClientForm(request.POST)
@@ -21,7 +21,7 @@ def index(request):
             
         return redirect('/')
 
-    return render(request, "index.html", {'projects': projects})
+    return render(request, "index.html", {'pages': pages})
 
 def projects(request):
     return render(request, "projects.html")

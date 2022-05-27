@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/f5889cb895.js" crossorigin="anonymous"></script>
+
+    <title>Lazer Game EXEMPLE</title>
+    {% load static %}
+    <style>
+        .list-group-item {
+            background: none;
+        }
+
+        .section-title {
+            font-weight: 700;
+            font-style: italic;
+            color: crimson;
+        }
+
+        .carousel-caption {
+            bottom: 50%;
+            transform: translateY(50%);
+        }
+
+        .black-filter {
+            filter: brightness(50%)
+        }
+    </style>
+</head>
+
+<body>
+    {% include './bandeau.html'%}
+    <header class="bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <i class="fa-solid fa-gun fa-3x"></i>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#formules">Formules</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#infos">Informations</a>
+                    </li>
+                  </ul>
+                  <span class="navbar-text">
+                    Téléphone : <a href="tel:[+33]0606060606">06.06.06.06.06</a>
+                  </span>
+                </div>
+              </div>
+        </nav>
+    </header>
+    <main>
+        <section id="photos" class="">
+            <div id="carouselExampleIndicators" class="carousel slide carousel-fade shadow-lg rounded mb-3"
+                data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" style="max-height: 600px; overflow-y: hidden">
+                        <img src="{% static 'images/laser/laser.jpg' %}" class="d-block w-100 black-filter" alt="Lasergame salle">
+                        <div class="carousel-caption d-md-block">
+                            <h1 class="text-break fw-bold">Nous sommes <span class="text-danger">heureux</span> de vous retrouver chers combattants !</h1>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="max-height: 600px; overflow-y: hidden">
+                        <img src="{% static 'images/laser/laser2.jpg' %}" class="d-block w-100 black-filter" alt="...">
+                        <div class="carousel-caption d-md-block">
+                            <h1 class="text-break fw-bold">Nous vous avons préparé quelques suprises pour <span class="text-danger">notre retour en force</span>...</h1>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+        <section id="stats" class="mt-5">
+            <div class="container">
+                <div class="row mb-5">
+                    <h1 class="text-center section-title">L'incroyable laser game de Montauban !</h1>
+                    <h3 class="text-center">Des terrains de jeux incroyables</h3>
+                </div>
+                <div class="row">
+                    <div class="col-4 text-center">
+                        <i class="fa-brands fa-fort-awesome fa-5x mb-3"></i>
+                        <h4 class="number"><span class="text-danger fst-italic fw-bold">NEW </span>1 hectare</h4>
+                        <h6 class="">Terrain de jeu au total</h6>
+                    </div>
+                    <div class="col-4 text-center">
+                        <i class="fa-solid fa-gun fa-5x mb-3"></i>
+                        <h4 class="number">+30 000</h4>
+                        <h6 class="">Lasers lancés</h6>
+                    </div>
+                    <div class="col-4 text-center">
+                        <i class="fa-regular fa-face-laugh-squint fa-5x mb-3"></i>
+                        <h4 class="number">95,6%</h4>
+                        <h6 class="">De clients satisfaits</h6>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="formules" class="container-fluid mt-5">
+            <div class="row mt-1">
+                <h1 class="section-title text-center">Choisi une formule de jeu !</h1>
+            </div>
+            <div class="row pt-5">
+                <div class="col-md-4 col-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title text-center mb-3">Formule 3 personnes</h2>
+                            <p class="card-text">Venez à 3 personnes profiter de n'importe quelle salle de jeu pendant 20min.</p>
+                            <small class="d-block text-muted">Durée : 20mn</small>
+                            <small class="d-block text-muted">Nombre de partie: 1</small>
+                            <small class="d-block text-muted">Prix : 25€</small>
+                            <button class="mt-3 w-100 btn btn-danger">Choisir !</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title text-center mb-3">Formule anniversaire</h2>
+                            <p class="card-text">Organiser un anniversaire n'a jamais été aussi simple ! Venez de 10 à
+                                15 personnes avec une salle reservée, un gouter offert et 2 parties de laser game. </p>
+                            <small class="d-block text-muted">Durée : 2h30</small>
+                            <small class="d-block text-muted">Nombre de partie: 2</small>
+                            <small class="d-block text-muted">Prix : 120€</small>
+                            <button class="mt-3 w-100 btn btn-danger">Choisir !</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title text-center mb-3">Formule Solo</h2>
+                            <p class="card-text">Tu es seul.e ? Ce n'est pas un problème, tu peux quand même venir jouer
+                                avec d'autres personnes !</p>
+                            <small class="d-block text-muted">Durée : 20mn</small>
+                            <small class="d-block text-muted">Nombre de partie: 1</small>
+                            <small class="d-block text-muted">Prix : 10€</small>
+                            <button class="mt-3 w-100 btn btn-danger">Choisir !</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container mt-5">
+            <div class="row">
+                <h1 class="section-title text-center">Informations</h1>
+                <p class="section-title text-center">Pour permettre à tout le monde de profiter au maximum, il y a un
+                    certain nombre de règles à suivre, les voici :</p>
+            </div>
+            <div class="container">
+                <div class="row py-3 pt-md-0">
+                    <div class="col-12 col-md-6 py-md-5">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Ne pas courir.</li>
+                            <li class="list-group-item">Ne pas sauter (nous sommes dans le noir).</li>
+                            <li class="list-group-item">Être fairplay.</li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-6 py-md-5">
+                        <ul class="list-group list-group-flush text-md-end">
+                            <li class="list-group-item">Toujours tenir son arme à deux mains.</li>
+                            <li class="list-group-item">Rien ne sert de suivre une personne après qu'il soit désactivé.
+                            </li>
+                            <li class="list-group-item">À la fin du temps imparti, rejoignez votre base pour la sortie.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <footer id="infos" class="bg-dark text-white p-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>
+                        Nous sommes une entreprise familiale qui tend à s'agrandir de jour en jour, si vous avez une
+                        seule question, n'hésitez pas à nous contacter au <a
+                            class="link-danger" href="tel:[+33]606060606">06.06.06.06.06</a>.
+                    </p>
+                    <span>Horaires d'ouverture</span>
+                    <ul class="list-group mb-5">
+                        <li class="list-group-item text-white border-0">Lundi : <span
+                                class="text-danger">10:00-12:00</span> et <span class="text-danger">14:00-20:00</span>
+                        </li>
+                        <li class="list-group-item text-white border-0">Mardi : <span
+                                class="text-danger">10:00-12:00</span> et <span class="text-danger">14:00-20:00</span>
+                        </li>
+                        <li class="list-group-item text-white border-0">Mercredi : <span
+                                class="text-danger">10:00-20:00</span></li>
+                        <li class="list-group-item text-white border-0">Vendredi : <span
+                                class="text-danger">10:00-12:00</span> et <span class="text-danger">14:00-22:00</span>
+                        </li>
+                        <li class="list-group-item text-white border-0">Samedi : <span
+                                class="text-danger">10:00-22:00</span></li>
+                        <li class="list-group-item text-white border-0">Dimanche : <span
+                                class="text-danger">14:00-20:00</span></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45882.60281709648!2d1.3538512951070572!3d44.04902310191768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12ac125f660e2949%3A0x3d492113461d1153!2sCanton%20de%20Montauban-2%2C%2082000%20Montauban!5e0!3m2!1sfr!2sfr!4v1653570188577!5m2!1sfr!2sfr"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <span class="mt-5">Copyright &copy 2022</span>
+            </div>
+        </div>
+    </footer>
+    {% include './watermark.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

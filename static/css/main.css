@@ -210,9 +210,6 @@ i {
 }
 
 .card {
-    min-height: 200px;
-    max-height: 300px;
-    overflow: hidden;
     cursor: pointer;
     transition-property: transform;
     transition-duration: 0.2s;
@@ -221,20 +218,6 @@ i {
 
 .card:hover {
     transform: scale(1.05);
-}
-
-.card-img {
-    position: absolute;
-    top: -9999px;
-    bottom: -9999px;
-    left: -9999px;
-    right: -9999px;
-    margin: auto;
-    filter: brightness(50%)
-}
-
-.card-img-overlay {
-    text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
 }
 
 #quick-desc {
