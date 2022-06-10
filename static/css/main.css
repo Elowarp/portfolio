@@ -55,11 +55,6 @@ li {
     margin-left: 2rem;
 }
 
-a {
-    text-decoration: none;
-    color: var(--bs-body-color);
-}
-
 a:hover {
     color: var(--bs-body-color);
 }

@@ -1,13 +1,14 @@
-from django.shortcuts import render
-from .models import Project, PageExemple
+from .models import Project, PageExemple, Article
 from .forms import ClientForm
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import redirect, get_object_or_404, render
 from django.contrib import messages
 from .sendTelegram import send
+from django.http import Http404
 
 # Create your views here.
 def index(request):
     pages = PageExemple.objects.all().order_by("-date")
+    articles = Article.objects.all().order_by("-date")
 
     if request.method == "POST":
         form = ClientForm(request.POST)
@@ -21,10 +22,16 @@ def index(request):
             
         return redirect('/')
 
-    return render(request, "index.html", {'pages': pages})
+    return render(request, "index.html", {'pages': pages, 'articles': articles})
 
-def projects(request):
-    return render(request, "projects.html")
+def articles(request):
+    if request.method == "GET":
+        id = request.GET.get("id", False)
+        if id:
+            article = get_object_or_404(Article, pk=id)
+            return render(request, "articles.html", {"article": article})
+
+        raise Http404("L'article n'existe pas.")
 
 def mentionsLegales(request):
     return render(request, "mentionsLegales.html")
@@ -32,7 +39,6 @@ def mentionsLegales(request):
 def siteExemple(request):
     if request.method == "GET":
         id = request.GET.get("id", False)
-        print(id)
         if id:
             page = get_object_or_404(PageExemple, pk=id)
             return render(request, "sites/"+page.page)

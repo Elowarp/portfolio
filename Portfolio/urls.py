@@ -15,15 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from vitrine.views import index, projects, mentionsLegales, siteExemple
+from vitrine.views import index, articles, mentionsLegales, siteExemple
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     path('', index),
-    path('projects/', projects),
-    path('legal/', mentionsLegales),
+    path('articles', articles),
+    path('legal', mentionsLegales),
     path('sites', siteExemple),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(
     settings.HELLOWEEK_URL, document_root=settings.HELLOWEEK_ROOT)

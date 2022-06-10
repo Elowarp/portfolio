@@ -178,7 +178,7 @@
                 <div class="row mt-3">
                     {% for page in pages%}
                     <div class="col-lg-4 col-12">
-                        <a href="/sites?id={{page.id}}">
+                        <a href="/sites?id={{page.id}}" class="text-decoration-none">
                             <div class="card bg-dark text-white my-3">
                                 <img src="/media/{{page.image}}" class="card-img" alt="{{page.image}}" loading="lazy">
                                 <div class="card-body">
@@ -192,11 +192,27 @@
                     </div>
                     {% endfor %}
                 </div>
+                <div class="row mt-2">
+                    <span class="fs-4 text-center">Et d'autres sont encore à venir !!</span>
+                </div>
                 <div class="row mt-5">
-                    <span class="fs-4 text-center">Et d'autres sont encore à venir !!
-                        <!--En attendant vous pouvez allez
-                        voir mes autres projets sur la page dédiée <a href="/projects"
-                            style="color:#455D6C">ici</a>.--></span>
+                    <h3>Vous pouvez cependant venir lire quelques de mes articles qui rentrent un peu plus dans les détails de mes projets personnels :</h3>
+                </div>
+                <div class="row mt-3">
+                    {% for article in articles%}
+                    <div class="col-lg-4 col-12">
+                        <a href="/articles?id={{article.id}}" class="text-decoration-none">
+                            <div class="card bg-dark text-white my-3">
+                                <img src="/media/{{article.image}}" class="card-img" alt="{{article.image}}" loading="lazy">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{article.title}}</h5>
+                                    <p class="card-text fs-6">Par {{article.author}}</p>
+                                    <small class="card-text">{{article.date}}</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
 
@@ -215,11 +231,11 @@
                             <div>
                                 <img src="{% static 'images/location.png' %}"
                                     alt="Localisation icone, Icone par icones8.fr">
-                                <span class="ms-3 fs-6">Montauban 82000, France</span>
+                                <span class="ms-3 fs-6 text-black">Montauban 82000, France</span>
                             </div>
                             <div class="mt-5">
                                 <img src="{% static 'images/mail.png' %}" alt="Mail icone, Icone par icones8.fr">
-                                <a href="mailto:elowanh@yahoo.com" class="ms-3 fs-6">elowanh@yahoo.com</a>
+                                <a href="mailto:elowanh@yahoo.com" class="ms-3 fs-6 text-decoration-none text-black">elowanh@yahoo.com</a>
                             </div>
                         </div>
                     </div>
