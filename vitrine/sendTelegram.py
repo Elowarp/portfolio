@@ -7,10 +7,11 @@ dotenv.load_dotenv(".env")
 api_key = os.getenv('TELEGRAM_API_KEY')
 user_id = os.getenv('TELEGRAM_USER_ID')
 
-myBot = Bot(token=api_key)
+# myBot = Bot(token=api_key)
 
 def send(message="Ton gp le tracteur"):
-    myBot.send_message(chat_id=user_id, text=message)
+    pass
+    #myBot.send_message(chat_id=user_id, text=message)
 
 if __name__ == "__main__":
     send()  
