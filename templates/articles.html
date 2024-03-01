@@ -64,18 +64,14 @@
                     </div>
                 </div>
                 {% endif %}
-                <div id="content" class="row">
-{{article.content}}
-                </div>
+                <div id="content" class="row">{{article.content}}</div>
                 <div id="meta" class="row mt-3 text-end">
                     <span class="text-muted">Par <span class="fw-bold">{{article.author}}</span>, le <span class="fw-bold">{{article.date}}</span>.</span>
                 </div>
             </div>
         </section>
     </main>
-    <footer>
-        {% include 'footer.html' %}
-    </footer>
+    {% include 'footer.html' %}
     {% if messages %}
     <div aria-live="polite" aria-atomic="true" class="position-relative">
         <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 11">
