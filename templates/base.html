@@ -22,19 +22,19 @@
     <header class="fixed-top">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container">
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="{% url 'index' %}">
                 <span style="color: white; font-size: 2rem;font-family: 'Segoe Script'">Elo</span>
             </a>
             <div class="d-flex align-items-end">
                 <ul class="navbar-nav">
                 <li class="nav-item d-none d-lg-table">
-                    <a class="nav-link" aria-current="page" href="/#">Accueil</a>
+                    <a class="nav-link" aria-current="page" href="{% url 'index' %}#">Accueil</a>
                 </li>
                 <li class="nav-item d-none d-lg-table">
-                    <a class="nav-link {% if page == 'projects' %}active{%endif%}" href="/blog">Le blog</a>
+                    <a class="nav-link {% if page == 'projects' %}active{%endif%}" href="{% url 'list_articles' %}">Le blog</a>
                 </li>
                 <li class="nav-item d-none d-lg-table">
-                    <a class="nav-link" href="/#aboutme">À propos de moi</a>
+                    <a class="nav-link" href="{% url 'index' %}#aboutme">À propos de moi</a>
                 </li>
                 <li class="nav-item">
                     <a class="d-flex justify-content-center align-items-center text-center btn-contact" href="/#contactme">Me contacter</a>
@@ -56,7 +56,7 @@
             <div class="text-center pt-3">© Copyright 2024. Tous droits réservés.</div>
             <div class="text-center pt-3">Icones venant de <a class="text-white" target="_blank" href="https://devicon.dev/">Devicon</a> et <a class="text-white" target="_blank" href="https://fontawesome.com/">FontAwesome</a></div>
 
-            <div class="text-center pt-3"><a href="/legal" class="text-white">Mentions légales</a></div>
+            <div class="text-center pt-3"><a href="{% url 'legal' %}" class="text-white">Mentions légales</a></div>
             <div class="row py-3">
                 <ul class="list-group list-group-horizontal justify-content-center">
                     <li class="list-group-item"><a target="_blank" class="text-decoration-none" href="https://www.instagram.com/elowarp" title="Compte Instagram"><i class="fa-brands fa-instagram fa-2x text-white"></i></a></li>

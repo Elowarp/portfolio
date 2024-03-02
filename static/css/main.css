@@ -1,4 +1,3 @@
-{% load static %}
 @font-face {
     font-family: 'Segoe Script';
     src: url("/static/fonts/segoesc.ttf");
@@ -89,6 +88,7 @@ a:hover {
 section {
     min-height: 100vh;
     padding-top: 4rem;
+    background-color: #F6ECE0;
 }
 
 #presentation {
