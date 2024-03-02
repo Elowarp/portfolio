@@ -16,7 +16,10 @@ python manage.py runserver --settings=Portfolio.settings.development
 ## Production
 
 Commande pour lancer le server comme en production :
-```gunicorn -c config/gunicorn/dev.py```
+
+```bash
+gunicorn -c config/gunicorn/dev.py
+```
 
 Fichier .env typique :
 
@@ -24,9 +27,18 @@ Fichier .env typique :
 
 ```
 
+Rendre disponible les fichiers statiques :
+
+```bash
+sudo mkdir -pv /var/www/portfolio/static/
+sudo chown -R $USER /var/www/portfolio/
+python manage.py collectstatic --settings=Portfolio.settings.development
+```
+
 ### Setup Nginx
 
 Copier le fichier `portfolio.conf` de `config/nginx/` dans `/etc/nginx/sites-available` puis faire :
 
-```sudo ln -s /etc/nginx/sites-available/portfolio.conf /etc/nginx/sites-enabled/portfolio.conf```
-
+```bash
+sudo ln -s /etc/nginx/sites-available/portfolio.conf /etc/nginx/sites-enabled/portfolio.conf
+```
