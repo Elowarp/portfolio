@@ -3,14 +3,20 @@ import os
 
 DEBUG = False
 
+host = "mongodb+srv://{}:{}@{}/?retryWrites=true&w=majority".format(
+    os.getenv("DB_USERNAME"),
+    os.getenv("DB_PASSWORD"),
+    os.getenv("DB_CLUSTER"),
+)
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'djongo',
         'NAME': os.getenv("DB_NAME"),
-        'HOST': os.getenv("DB_HOST"),
-        'USER': os.getenv("DB_USER"),
-        'PASSWORD': os.getenv("DB_PASSWORD"),
-        'PORT': os.getenv("DB_PORT"),
+        'ENFORCE_SCHEMA': False,
+            'CLIENT': {
+                'host': host
+            }  
     }
 }
 
