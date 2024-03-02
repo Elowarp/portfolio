@@ -33,7 +33,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'vitrine'
+    'vitrine',
+    'blog.apps.BlogConfig'
 ]
 
 MIDDLEWARE = [
@@ -51,7 +52,7 @@ ROOT_URLCONF = 'Portfolio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["templates"],
+        'DIRS': ["templates", "templates_blog"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -59,6 +60,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -69,13 +71,6 @@ WSGI_APPLICATION = 'Portfolio.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 
 # Password validation
@@ -130,7 +125,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-APPEND_SLASH = False
-
-HELLOWEEK_URL = '/dist/'
-HELLOWEEK_ROOT = os.path.join(BASE_DIR, 'HelloWeek/dist')
+APPEND_SLASH = True

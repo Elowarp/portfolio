@@ -1,280 +1,213 @@
-<!DOCTYPE html>
-<html lang="fr">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="sc5aNzA6aQbDWWUrq1SSJDV4RSLB1r-XYc7XqyORLvo" />
-    <title>Elowan - Développeur</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/f5889cb895.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-    {%load static%}
-    <link href="{% static 'css/main.css' %}" rel="stylesheet">
-</head>
+{% load static %}
 
-<body class="">
-    <header class="fixed-top">
-        {% include './header.html'%}
-    </header>
-    <main>
-        <section id="presentation" class="d-flex align-items-center text-white">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <h1 class="nom my-4">Salut, je suis <span class="prenom">Elowan.</span></h1>
-                        <span class="fs-4 mt-4">
-                            Je suis <span class="job">développeur web fullstack</span>, mais
-                        </span>
-                        <span class="fs-4">
-                            pas que !
-                        </span>
-                    </div>
-                </div>
+{% block content %}
+<section id="presentation" class="d-flex align-items-center text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="nom my-4">Salut, je suis <span class="prenom">Elowan.</span></h1>
+                <span class="fs-4 mt-4">
+                    Je suis <span class="job">développeur</span>, mais pas que !
+                </span>
             </div>
-        </section>
-        <section id="aboutme">
-            <div class="container py-5">
-                <div class="row mb-4">
-                    <h3>À ce propos..</h3>
-                    <h1>Qui est <span class="prenom">Elowan</span> ?</h1>
-                </div>
-                <div class="row mb-5">
-                    <div class="col-12 col-md-4 mb-3">
-                        <div class="profil mx-auto d-block">
-                            <img src="{% static 'images/profile.png'%}" alt="image de profil" class="profil-img ">
-                        </div>
-
-                    </div>
-                    <div id="description" class="col-12 col-md-8">
-                        <p id="quick-desc">
-                            Un étudiant curieux et passionné par tous les aspects de l'informatique.
-                        </p>
-
-                        <p class="my-4">Je suis passionné par le caractère <span class="red">logique</span> et <span
-                                class="red">cartésien</span> de l'informatique mais j'adore tout autant rendre 
-                            l'informatique <span style="font-family: 'segoe script';">esthétique</span> et attrayant pour
-                            n'importe qui <span class="fst-italic">(comme du miel, mais pour les yeux...)</span>. La curiosité et le partage sont deux notions qui me sont
-                            chères. Depuis maintenant quelques années, je partage sur internet ma passion à travers des vidéos
-                            courtes, telles que des petits projets que j'ai pu faire ou alors comme la découverte d'une
-                            certaine technologie. Même si mon passage en prépa a nettement stoppé cette activité...</p>
-
-                        <p>Je suis en classe de MPI étoilée au lycée Thiers à Marseille🇫🇷 donc avec un apprentissage tourné
-                            majoritairement vers les sciences et l'informatique. Mais j'ai tout aussi bien d'autres passions.
-                            Je pratique en parallèle le VolleyBall 🏐 ainsi que le Parkour/Freerunning depuis 6 ans.
-                            Pendant le reste de mon temps libre (inexistant), j'aime bien pratiquer de la guitare, je m'essaye même à la batterie
-                            même si pour le moment je me verrai pas animer un concert de Jazz 🎶.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="angle angle1"></div>
-        <section id="whatido">
-            <div class="container py-5">
-                <h1>Mes outils</h1>
-                <span class="fs-4">Que de bonnes choses ce que je maitrise 😎</span>
-                <div class="skills row my-5">
-                    <div class="col-4 col-md-3 col-lg-2 icons-skills">
-                        <i class="fa-brands fa-html5 fa-5x"></i>
-                        <span class="text-icon">HTML 5</span>
-                    </div>
-                    <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                        <i class="fa-brands fa-css3-alt fa-5x"></i>
-                        <span class="text-icon">CSS 3</span>
-                    </div>
-                    <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                        <i class="fa-brands fa-js-square fa-5x"></i>
-                        <span class="text-icon">Javascript</span>
-                    </div>
-                    <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                        <i class="fa-brands fa-python fa-5x"></i>
-                        <span class="text-icon">Python</span>
-                    </div>
-                    <div class="col-4 col-md-3 col-lg-2 icons-skills">
-                        <i class="devicon-django-plain fa-5x"></i>
-                        <span class="text-icon">Django</span>
-                    </div>
-                    <div class="col-4 col-md-3 col-lg-2 icons-skills">
-                        <i class="fa-brands fa-bootstrap fa-5x"></i>
-                        <span class="text-icon">Bootstrap 5</span>
-                    </div>
-                    <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                        <i class="devicon-c-plain fa-5x"></i>
-                        <span class="text-icon">C</span>
-                    </div>
-                    <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                        <i class="fa-brands fa-git-alt fa-5x"></i>
-                        <span class="text-icon">Git</span>
-                    </div>
-                    <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                        <i class="devicon-ocaml-plain fa-5x"></i>
-                        <span class="text-icon">Ocaml</span>
-                    </div>
-                    <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                        <i class="fa-solid fa-database fa-5x"></i>
-                        <span class="text-icon">Base de données</span>
-                    </div>
-                    <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                        <i class="fa-solid fa-terminal fa-5x"></i>
-                        <span class="text-icon">Ligne de commande</span>
-                    </div>
-                    <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                        <i class="fa-brands fa-linux fa-5x"></i>
-                        <span class="text-icon">Linux</span>
-                    </div>
-                    <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                        <i class="devicon-vscode-plain fa-5x"></i>
-                        <span class="text-icon">VS Code</span>
-                    </div>
-                    <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                        <img src="{% static 'images/adobe.png' %}" alt="Adobe icone" class="m-auto"
-                            style="width:6em; display: block; margin-bottom: 10px;">
-                        <span class="text-icon">Suite Adobe</span>
-                    </div>
-                </div>
-                <div class="row px-5">
-                    <div class="col-12 col-lg-2 col-md-3 d-none d-md-flex">
-                        <img src="{% static 'images/england.png'%}" alt="Drapeau anglais" style="width:11rem"
-                            class="float-start">
-
-                    </div>
-                    <div class="col-md-1">
-                        <div class="w-100"></div>
-                    </div>
-                    <div class="col-12 col-md-8 col-lg-9 m-auto">
-                        <span id="english" class="fs-4">J'ai aussi un niveau <span style="color:#FFFDFD">B2 en
-                                anglais</span> ce qui peut être utile n'importe quand.</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="angle angle2"></div>
-        <section id="projects">
-            <div class="container py-5">
-                <h1>Une partie de moi : Les choses que j'ai faites dans le passé</h1>
-
-                <div class="row mt-5">
-                    <h3>Lecture en détails de certains de mes projets personnels :</h3>
-                </div>
-                <div class="row mt-3">
-                    {% for article in articles%}
-                    <div class="col-lg-4 col-12">
-                        <a href="/articles?id={{article.id}}" class="text-decoration-none">
-                            <div class="card bg-dark text-white my-3">
-                                <img src="/media/{{article.image}}" class="card-img" alt="{{article.image}}" loading="lazy">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{article.title}}</h5>
-                                    <p class="card-text fs-6">Par {{article.author}}</p>
-                                    <small class="card-text">{{article.date}}</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    {% endfor %}
-                </div>
-                <div class="row mt-5">
-                    <h3>Vous pouvez aussi voir des sites vitrines montrant mes capacités sur le "terrain", pouvant vous inspirer différentes commandes à me faire ;)</h3>
-                </div>
-                <span class="d-block fs-6 text-muted my-3">Info à savoir : Les sites ne sont que des vitrines non
-                    fonctionnelles, elles n'ont pour but que de vous donner de l'inspiration quant à votre projet. Une seule
-                    page n'est disponible par "thème" mais le produit final contiendra autant de pages que
-                    nécessaires.</span>
-                <div class="row mt-3">
-                    {% for page in pages%}
-                    <div class="col-lg-4 col-12">
-                        <a href="/sites?id={{page.id}}" class="text-decoration-none">
-                            <div class="card bg-dark text-white my-3">
-                                <img src="/media/{{page.image}}" class="card-img" alt="{{page.image}}" loading="lazy">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{page.name}}</h5>
-                                    <p class="card-text fs-6">{{page.description}}</p>
-                                    <small class="card-text">{{page.date|date:"M Y"}}</small>
-                                    <small class="d-block">Estimation: {{page.prix}}€</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    {% endfor %}
-                </div>
-                <div class="row mt-2">
-                    <span class="fs-4 text-center">Et d'autres sont encore à venir !!</span>
-                </div>
-            </div>
-
-        </section>
-        <div class="angle angle3"></div>
-        <section id="contactme">
-            <div class="container py-5">
-                <div class="row mb-5">
-                    <h1>Pour me contacter, c'est super <span class="text-decoration-underline">simple</span> !</h1>
-                    <span>Je suis là pour rendre vie à toutes vos idées, farfelues ou non. Je ne suis qu'à un clique de
-                        vous</span>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3"></div>
-                    <div class="col-12 col-lg-6 mx-lg-3 mt-3">
-                        <div class="infotab p-4">
-                            <div>
-                                <img src="{% static 'images/location.png' %}"
-                                    alt="Localisation icone, Icone par icones8.fr">
-                                <span class="ms-3 fs-6 text-black">Montauban 82000 / Marseille 13000, France</span>
-                            </div>
-                            <div class="mt-5">
-                                <img src="{% static 'images/mail.png' %}" alt="Mail icone, Icone par icones8.fr">
-                                <a href="mailto:elowarp@@gmail.com" class="ms-3 fs-6 text-black">elowarp@gmail.com</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    {% include 'footer.html' %}
-    {% if messages %}
-    <div aria-live="polite" aria-atomic="true" class="position-relative">
-        <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-            {% for message in messages %}
-            <div class="toast align-items-center text-white bg-{% if message.tags == 'error' %}danger{%else%}{{message.tags}}{%endif%} border-0"
-                role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="d-flex">
-                    <div class="toast-body">
-                        {{message}}
-                    </div>
-                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-                        aria-label="Close"></button>
-                </div>
-            </div>
-            {%endfor%}
         </div>
     </div>
-    {%endif%}
-    <div></div>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
-    </script>
-    <script>
-        window.addEventListener("DOMContentLoaded", () => {
-            //Gestion des notifications
-            var toastElList = document.querySelectorAll('.toast')
+</section>
+<section id="aboutme">
+    <div class="container py-5">
+        <div class="row mb-4">
+            <h3>À ce propos..</h3>
+            <h1>Qui est <span class="prenom">Elowan</span> ?</h1>
+        </div>
+        <div class="row mb-5">
+            <div class="col-12 col-md-4 mb-3">
+                <div class="profil mx-auto d-block">
+                    <img src="{% static 'images/profile.png'%}" alt="image de profil" class="profil-img ">
+                </div>
 
-            if (toastElList != undefined) {
-                let toast
+            </div>
+            <div id="description" class="col-12 col-md-8">
+                <p id="quick-desc">
+                    Un étudiant curieux et passionné par tous les aspects de l'informatique.
+                </p>
 
-                //Crée et affiche les différents messages à l'écran
-                for (let i = 0; i < toastElList.length; i++) {
-                    toast = new bootstrap.Toast(toastElList[i], {
-                        delay: 7000
-                    })
-                    toast.show()
-                }
-            }
-        })
-    </script>
-</body>
+                <p class="my-4">Je suis passionné par le caractère <span class="red">logique</span> et <span
+                        class="red">cartésien</span> de l'informatique mais j'adore tout autant rendre 
+                    l'informatique <span style="font-family: 'segoe script';">esthétique</span> et attrayant pour
+                    n'importe qui <span class="fst-italic">(comme du miel, mais pour les yeux...)</span>. La curiosité et le partage sont deux notions qui me sont
+                    chères. Depuis maintenant quelques années, je partage sur internet ma passion à travers des vidéos
+                    courtes, telles que des petits projets que j'ai pu faire ou alors comme la découverte d'une
+                    certaine technologie. Même si mon passage en prépa a nettement stoppé cette activité...</p>
 
-</html>
+                <p>Je suis en classe de MPI étoilée au lycée Thiers à Marseille🇫🇷 donc avec un apprentissage tourné
+                    majoritairement vers les sciences et l'informatique. Mais j'ai tout aussi bien d'autres passions.
+                    Je pratique en parallèle le VolleyBall 🏐 ainsi que le Parkour/Freerunning depuis 6 ans.
+                    Pendant le reste de mon temps libre (inexistant), j'aime bien pratiquer de la guitare, je m'essaye même à la batterie
+                    même si pour le moment je me verrai pas animer un concert de Jazz 🎶.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="angle angle1"></div>
+<section id="whatido">
+    <div class="container py-5">
+        <h1>Mes outils</h1>
+        <span class="fs-4">Que de bonnes choses ce que je maitrise 😎</span>
+        <div class="skills row my-5">
+            <div class="col-4 col-md-3 col-lg-2 icons-skills">
+                <i class="fa-brands fa-html5 fa-5x"></i>
+                <span class="text-icon">HTML 5</span>
+            </div>
+            <div class="col-4 col-md-3 col-lg-2  icons-skills">
+                <i class="fa-brands fa-css3-alt fa-5x"></i>
+                <span class="text-icon">CSS 3</span>
+            </div>
+            <div class="col-4 col-md-3 col-lg-2  icons-skills">
+                <i class="fa-brands fa-js-square fa-5x"></i>
+                <span class="text-icon">Javascript</span>
+            </div>
+            <div class="col-4 col-md-3 col-lg-2  icons-skills">
+                <i class="fa-brands fa-python fa-5x"></i>
+                <span class="text-icon">Python</span>
+            </div>
+            <div class="col-4 col-md-3 col-lg-2 icons-skills">
+                <i class="devicon-django-plain fa-5x"></i>
+                <span class="text-icon">Django</span>
+            </div>
+            <div class="col-4 col-md-3 col-lg-2 icons-skills">
+                <i class="fa-brands fa-bootstrap fa-5x"></i>
+                <span class="text-icon">Bootstrap 5</span>
+            </div>
+            <div class="col-4 col-md-3 col-lg-2  icons-skills">
+                <i class="devicon-c-plain fa-5x"></i>
+                <span class="text-icon">C</span>
+            </div>
+            <div class="col-4 col-md-3 col-lg-2  icons-skills">
+                <i class="fa-brands fa-git-alt fa-5x"></i>
+                <span class="text-icon">Git</span>
+            </div>
+            <div class="col-4 col-md-3 col-lg-2  icons-skills">
+                <i class="devicon-ocaml-plain fa-5x"></i>
+                <span class="text-icon">Ocaml</span>
+            </div>
+            <div class="col-4 col-md-3 col-lg-2  icons-skills">
+                <i class="fa-solid fa-database fa-5x"></i>
+                <span class="text-icon">Base de données</span>
+            </div>
+            <div class="col-4 col-md-3 col-lg-2  icons-skills">
+                <i class="fa-solid fa-terminal fa-5x"></i>
+                <span class="text-icon">Ligne de commande</span>
+            </div>
+            <div class="col-4 col-md-3 col-lg-2  icons-skills">
+                <i class="fa-brands fa-linux fa-5x"></i>
+                <span class="text-icon">Linux</span>
+            </div>
+            <div class="col-4 col-md-3 col-lg-2  icons-skills">
+                <i class="devicon-vscode-plain fa-5x"></i>
+                <span class="text-icon">VS Code</span>
+            </div>
+            <div class="col-4 col-md-3 col-lg-2  icons-skills">
+                <img src="{% static 'images/adobe.png' %}" alt="Adobe icone" class="m-auto"
+                    style="width:6em; display: block; margin-bottom: 10px;">
+                <span class="text-icon">Suite Adobe</span>
+            </div>
+        </div>
+        <div class="row px-5">
+            <div class="col-12 col-lg-2 col-md-3 d-none d-md-flex">
+                <img src="{% static 'images/england.png'%}" alt="Drapeau anglais" style="width:11rem"
+                    class="float-start">
+
+            </div>
+            <div class="col-md-1">
+                <div class="w-100"></div>
+            </div>
+            <div class="col-12 col-md-8 col-lg-9 m-auto">
+                <span id="english" class="fs-4">J'ai aussi un niveau <span style="color:#FFFDFD">B2 en
+                        anglais</span> ce qui peut être utile n'importe quand.</span>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="angle angle2"></div>
+<section id="projects">
+    <div class="container py-5">
+        <h1>Une partie de moi : Les choses que j'ai faites dans le passé</h1>
+
+        <div class="row mt-5">
+            <h3>Pour une lecture en détails de certains de mes projets :</h3>
+        </div>
+        <div class="row mt-3">
+            {% for article in articles %}
+            <div class="col-lg-4 col-12">
+                <a href="{% url 'read_article' article.slug_name %}" class="text-decoration-none">
+                    <div class="card bg-dark text-white my-3">
+                        {%if article.banner %}<img src="{{ MEDIA_URL }}{{ article.banner }}" class="card-img" alt="{{article.image}}" loading="lazy">{%endif%}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ article.title }}</h5>
+                            <p class="card-text fs-6">Par {{ article.author }}</p>
+                            <small class="card-text">{{ article.pub_date | date:'d N Y' }}</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row mt-5">
+            <h3>Vous pouvez aussi voir des sites vitrines montrant mes capacités sur le "terrain", pouvant vous inspirer différentes commandes à me faire ;)</h3>
+        </div>
+        <span class="d-block fs-6 text-muted my-3">Info à savoir : Les sites ne sont que des vitrines non
+            fonctionnelles, elles n'ont pour but que de vous donner de l'inspiration quant à votre projet. Une seule
+            page n'est disponible par "thème" mais le produit final contiendra autant de pages que
+            nécessaires.</span>
+        <div class="row mt-3">
+            {% for page in pages%}
+            <div class="col-lg-4 col-12">
+                <a href="/sites?id={{page.id}}" class="text-decoration-none">
+                    <div class="card bg-dark text-white my-3">
+                        {%if page.image %}<img src="/media/{{page.image}}" class="card-img" alt="{{page.image}}" loading="lazy">{% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ page.name }}</h5>
+                            <p class="card-text fs-6">{{ page.description }}</p>
+                            <small class="card-text">{{ page.date| date:'d N Y' }}</small>
+                            {% if page.prix %}<small class="d-block">Estimation: {{page.prix}} €</small>{% endif %}
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row mt-2">
+            <span class="fs-4 text-center">Et d'autres sont encore à venir !!</span>
+        </div>
+    </div>
+
+</section>
+<div class="angle angle3"></div>
+<section id="contactme">
+    <div class="container py-5">
+        <div class="row mb-5">
+            <h1>Pour me contacter, c'est super <span class="text-decoration-underline">simple</span> !</h1>
+            <span>Je suis là pour rendre vie à toutes vos idées, farfelues ou non. Je ne suis qu'à un clique de
+                vous</span>
+        </div>
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-12 col-lg-6 mx-lg-3 mt-3">
+                <div class="infotab p-4">
+                    <div>
+                        <img src="{% static 'images/location.png' %}"
+                            alt="Localisation icone, Icone par icones8.fr">
+                        <span class="ms-3 fs-6 text-black">Montauban 82000 / Marseille 13000, France</span>
+                    </div>
+                    <div class="mt-5">
+                        <img src="{% static 'images/mail.png' %}" alt="Mail icone, Icone par icones8.fr">
+                        <a href="mailto:elowarp@@gmail.com" class="ms-3 fs-6 text-black">elowarp@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

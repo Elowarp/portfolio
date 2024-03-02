@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}{{article.title}}{% endblock %}
+{% block scripts_top %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<style>
+    pre {
+        white-space: pre-wrap;
+        white-space: -moz-pre-wrap;
+        white-space: -pre-wrap;
+        white-space: -o-pre-wrap;
+        word-wrap: break-word;
+        background-color: #f8f8f8;
+        border: 1px solid #dfdfdf;
+        margin-top: 1.5em;
+        margin-bottom: 1.5em;
+        padding: 0.125rem 0.3125rem 0.0625rem;
+        border-radius: 3px;
+    }
+
+    #article {
+        font-size: 1.2rem;
+    }
+
+    h1 {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        font-weight: bold;
+        text-align: center;
+        font-style: oblique;
+    }
+
+    p > img {
+        margin:auto;
+        max-width: 500px;
+        width: 90vw;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section id="article">
+    <div class="container px-5 py-4 fs-5" style="max-width: 50rem;">
+        <h1 class="text-center fw-bold mb-4">{{ article.title }}</h1>
+        {% if article.banner %}
+        <div class="row">
+            <div class="ratio ratio-16x9" >
+                <div style="overflow-y: hidden">
+                    <img src="{{MEDIA_URL}}{{article.banner}}" alt="{{article.banner}}" style="width:100%; transform: translateY(-15%);">
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        <div id="content" class="row">{{ article.text }}</div>
+        <div id="meta" class="row mt-3 text-end">
+            <span class="text-muted">Par <span class="fw-bold">{{article.author}}</span>, le <span class="fw-bold">{{article.pub_date}}</span>.</span>
+        </div>
+        <div class="row mt-2">
+            <a href="{%url 'list_articles'%}" class="text-center">Retour</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts_bottom %}
+<script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+    onload="renderMathInElement(document.body);"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Converts the markdown to HTML
+        var converter = new showdown.Converter({})
+        var article = document.getElementById("content");
+        var html = converter.makeHtml(article.textContent);
+        article.innerHTML = html;
+
+        // Converts the latex to HTML
+        renderMathInElement(article, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            throwOnError : true,
+
+        });
+    });
+</script>
+{% endblock %}
