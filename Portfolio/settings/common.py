@@ -123,6 +123,5 @@ STATIC_ROOT = "/var/www/portfolio/static/"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = "/var/www/portfolio/media/"
 
 APPEND_SLASH = True

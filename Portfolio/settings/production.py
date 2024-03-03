@@ -26,4 +26,6 @@ INSTALLED_APPS += (
 
 ALLOWED_HOSTS = ['127.0.0.0', 'localhost', 'www.elowarp.fr']
 
+MEDIA_ROOT = "/var/www/portfolio/media/"
+
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")

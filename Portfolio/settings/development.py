@@ -12,4 +12,6 @@ DATABASES = {
 
 ALLOWED_HOSTS = ['*']
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 SECRET_KEY="mykey"
