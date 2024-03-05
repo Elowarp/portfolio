@@ -31,10 +31,13 @@
                     <a class="nav-link" aria-current="page" href="{% url 'index' %}#">Accueil</a>
                 </li>
                 <li class="nav-item d-none d-lg-table">
-                    <a class="nav-link {% if page == 'projects' %}active{%endif%}" href="{% url 'list_articles' %}">Le blog</a>
+                    <a class="nav-link" href="{% url 'index' %}#aboutme">À propos de moi</a>
                 </li>
                 <li class="nav-item d-none d-lg-table">
-                    <a class="nav-link" href="{% url 'index' %}#aboutme">À propos de moi</a>
+                    <a class="nav-link" href="{% url 'index' %}#skills">Compétences</a>
+                </li>
+                <li class="nav-item d-none d-lg-table">
+                    <a class="nav-link {% if page == 'projects' %}active{%endif%}" href="{% url 'index' %}#blog">Le blog</a>
                 </li>
                 <li class="nav-item">
                     <a class="d-flex justify-content-center align-items-center text-center btn-contact" href="/#contactme">Me contacter</a>
