@@ -1,8 +1,4 @@
-@font-face {
-    font-family: 'Segoe Script';
-    src: url("/static/fonts/segoesc.ttf");
-}
-.btn-contact {
+/* .btn-contact {
     border: 3px solid #445D6C;
     border-radius: 100px;
     width: 10rem;
@@ -10,7 +6,7 @@
     text-decoration: none;
     color: #FFFDFD;
     background-color: none;
-}
+} */
 
 .btn-contact:hover {
     color: #FFFDFD;

@@ -30,22 +30,17 @@
             </div>
             <div id="description" class="col-12 col-md-8">
                 <p id="quick-desc">
-                    Un étudiant curieux et passionné par tous les aspects de l'informatique.
+                    Un étudiant curieux et passionné par l'informatique.
                 </p>
+                
+                <p class="my-4">Actuellement en classe de MPI étoilée au lycée Thiers à Marseille, je compte poursuivre des études 
+                    tournées majoritairement vers les sciences et l'informatique. Je pratique en parallèle le Parkour/Freerunning 
+                    depuis plus de 6 ans, en plus de m'essayer à la batterie et à la guitare.</p>
 
-                <p class="my-4">Je suis passionné par le caractère <span class="red">logique</span> et <span
-                        class="red">cartésien</span> de l'informatique mais j'adore tout autant rendre 
-                    l'informatique <span style="font-family: 'segoe script';">esthétique</span> et attrayant pour
-                    n'importe qui <span class="fst-italic">(comme du miel, mais pour les yeux...)</span>. La curiosité et le partage sont deux notions qui me sont
-                    chères. Depuis maintenant quelques années, je partage sur internet ma passion à travers des vidéos
-                    courtes, telles que des petits projets que j'ai pu faire ou alors comme la découverte d'une
-                    certaine technologie. Même si mon passage en prépa a nettement stoppé cette activité...</p>
+                <p>Depuis maintenant quelques années, je prends beaucoup de plaisir à créer des vidéos
+                    courtes, pour partager par exemple des petits projets que j'ai pu faire (Hackintosh, 3D Printer, Snake, tutoriels...).
+                    Même si mon passage en prépa a nettement stoppé cette activité...</p>
 
-                <p>Je suis en classe de MPI étoilée au lycée Thiers à Marseille🇫🇷 donc avec un apprentissage tourné
-                    majoritairement vers les sciences et l'informatique. Mais j'ai tout aussi bien d'autres passions.
-                    Je pratique en parallèle le VolleyBall 🏐 ainsi que le Parkour/Freerunning depuis 6 ans.
-                    Pendant le reste de mon temps libre (inexistant), j'aime bien pratiquer de la guitare, je m'essaye même à la batterie
-                    même si pour le moment je me verrai pas animer un concert de Jazz 🎶.</p>
             </div>
         </div>
     </div>
@@ -134,7 +129,7 @@
 <section id="blog">
     <div class="container py-5">
         <h1>Pour une lecture en détails de certains de mes projets :</h1>
-        <div class="row mt-3">
+        <div class="row mt-4">
             {% for article in articles %}
             <div class="col-lg-4 col-12">
                 <a href="{% url 'read_article' article.slug_name %}" class="text-decoration-none">
@@ -184,14 +179,11 @@
 <section id="contactme">
     <div class="container py-5">
         <div class="row mb-5">
-            <h1>Pour me contacter, c'est super <span class="text-decoration-underline">simple</span> !</h1>
-            <span>Je suis là pour rendre vie à toutes vos idées, farfelues ou non. Je ne suis qu'à un clique de
-                vous</span>
+            <h1>Pour rentrer en contact avec moi : </h1>
         </div>
         <div class="row">
-            <div class="col-lg-3"></div>
-            <div class="col-12 col-lg-6 mx-lg-3 mt-3">
-                <div class="infotab p-4">
+            <div class="mx-lg-3 mt-3">
+                <div class="p-4 infotab">
                     <div>
                         <img src="{% static 'images/location.png' %}"
                             alt="Localisation icone, Icone par icones8.fr">
@@ -200,6 +192,9 @@
                     <div class="mt-5">
                         <img src="{% static 'images/mail.png' %}" alt="Mail icone, Icone par icones8.fr">
                         <span class="ms-3 fs-6 text-black">elowarp [AT] gmail [DOT] com</span>
+                    </div>
+                    <div class="mt-5">
+                        <span class=" fs-5 text-black">Ou directement sur les réseaux sociaux : @elowarp (Instagram)</span>
                     </div>
                 </div>
             </div>
