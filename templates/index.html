@@ -31,13 +31,13 @@
             <h1>Qui est <span class="prenom">Elowan</span> ?</h1>
         </div>
         <div class="row mb-5">
-            <div class="col-12 col-md-4 mb-3">
+            <div class="col-12 col-lg-4 mb-3">
                 <div class="profil mx-auto d-block">
-                    <img src="{% static 'images/profile.png'%}" alt="image de profil" class="profil-img ">
+                    <img src="{% static 'images/profile_bis.jpeg'%}" alt="image de profil" class="profil-img ">
                 </div>
 
             </div>
-            <div id="description" class="col-12 col-md-8">
+            <div id="description" class="col-12 col-lg-8">
                 <p id="quick-desc">
                     Un étudiant curieux et passionné par l'informatique.
                 </p>
@@ -47,8 +47,8 @@
                     depuis plus de 6 ans, en plus de m'essayer à la batterie et à la guitare.</p>
 
                 <p>Depuis maintenant quelques années, je prends beaucoup de plaisir à créer des vidéos
-                    courtes, pour partager ce que j'aime comme des petits projets que j'ai pu faire (Hackintosh, 3D Printer, Snake).
-                    Même si mon passage en prépa a nettement stoppé cette activité...</p>
+                    courtes, pour partager ce que j'aime comme des petits projets que j'ai pu faire (<a target="_blank" href="https://youtu.be/8XdfuNv18dg?si=f06wujRTuUvko7gg">Hackintosh</a>,
+                    3D Printer, Snake, ...). Même si mon passage en prépa a nettement stoppé cette activité...</p>
 
             </div>
         </div>
@@ -58,20 +58,8 @@
 <section id="skills">
     <div class="container py-5">
         <h1>Mes compétences</h1>
-        <span class="fs-4">Que de bonnes choses ce que je maitrise</span>
-        <div class="skills row my-5">
-            <div class="col-4 col-md-3 col-lg-2 icons-skills">
-                <i class="fa-brands fa-html5 fa-5x"></i>
-                <span class="text-icon">HTML 5</span>
-            </div>
-            <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                <i class="fa-brands fa-css3-alt fa-5x"></i>
-                <span class="text-icon">CSS 3</span>
-            </div>
-            <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                <i class="fa-brands fa-js-square fa-5x"></i>
-                <span class="text-icon">Javascript</span>
-            </div>
+        <div class="row my-2">
+            <h3>Expérimenté</h3>
             <div class="col-4 col-md-3 col-lg-2  icons-skills">
                 <i class="fa-brands fa-python fa-5x"></i>
                 <span class="text-icon">Python</span>
@@ -80,33 +68,39 @@
                 <i class="devicon-django-plain fa-5x"></i>
                 <span class="text-icon">Django</span>
             </div>
-            <div class="col-4 col-md-3 col-lg-2 icons-skills">
-                <i class="fa-brands fa-bootstrap fa-5x"></i>
-                <span class="text-icon">Bootstrap 5</span>
-            </div>
             <div class="col-4 col-md-3 col-lg-2  icons-skills">
                 <i class="devicon-c-plain fa-5x"></i>
                 <span class="text-icon">C</span>
-            </div>
-            <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                <i class="fa-brands fa-git-alt fa-5x"></i>
-                <span class="text-icon">Git</span>
             </div>
             <div class="col-4 col-md-3 col-lg-2  icons-skills">
                 <i class="devicon-ocaml-plain fa-5x"></i>
                 <span class="text-icon">Ocaml</span>
             </div>
             <div class="col-4 col-md-3 col-lg-2  icons-skills">
+                <i class="fa-brands fa-linux fa-5x"></i>
+                <span class="text-icon">Linux</span>
+            </div>
+        </div>
+        <div class="row my-2">
+            <h3>Initié</h3>
+            <div class="col-4 col-md-3 col-lg-2  icons-skills">
+                <i class="devicon-latex-plain fa-5x"></i>
+                <span class="text-icon">Latex</span>
+            </div>
+            <div class="col-4 col-md-3 col-lg-2  icons-skills">
+                <i class="fa-brands fa-js-square fa-5x"></i>
+                <span class="text-icon">Javascript</span>
+            </div>
+            <div class="col-4 col-md-3 col-lg-2  icons-skills">
                 <i class="fa-solid fa-database fa-5x"></i>
                 <span class="text-icon">Base de données</span>
             </div>
+        </div>
+        <div class="row my-2">
+            <h3>Outils</h3>
             <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                <i class="fa-solid fa-terminal fa-5x"></i>
-                <span class="text-icon">Ligne de commande</span>
-            </div>
-            <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                <i class="fa-brands fa-linux fa-5x"></i>
-                <span class="text-icon">Linux</span>
+                <i class="fa-brands fa-git-alt fa-5x"></i>
+                <span class="text-icon">Git</span>
             </div>
             <div class="col-4 col-md-3 col-lg-2  icons-skills">
                 <i class="devicon-vscode-plain fa-5x"></i>
@@ -118,7 +112,7 @@
                 <span class="text-icon">Suite Adobe</span>
             </div>
         </div>
-        <div class="row px-5">
+        <div class="row mt-3">
             <div class="col-12 col-lg-2 col-md-3 d-none d-md-flex">
                 <img src="{% static 'images/england.png'%}" alt="Drapeau anglais" style="width:11rem"
                     class="float-start">
@@ -128,8 +122,8 @@
                 <div class="w-100"></div>
             </div>
             <div class="col-12 col-md-8 col-lg-9 m-auto">
-                <span id="english" class="fs-4">J'ai aussi un niveau <span style="color:#FFFDFD">C1 en
-                        anglais.</span></span>
+                <span id="english" class="fs-4">Ainsi qu'un niveau <span style="color:#FFFDFD">C1</span> en
+                anglais.</span>
             </div>
         </div>
     </div>
@@ -223,7 +217,7 @@ var typed = new Typed('#job', {
 });
 var down_btn = document.getElementById("down-arrow");
 down_btn.addEventListener("click", () => {
-    window.scrollTo({ left: 0, top: window.scrollY + window.innerHeight, behavior: "smooth" });
+    window.scrollTo({ left: 0, top:window.innerHeight, behavior: "smooth" });
 })
 </script>
 
