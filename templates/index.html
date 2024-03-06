@@ -2,6 +2,10 @@
 
 {% load static %}
 
+{% block scripts_top %}
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+{% endblock %}
+
 {% block content %}
 <section id="presentation" class="d-flex align-items-center text-white">
     <div class="container">
@@ -9,8 +13,13 @@
             <div class="col-12 text-center">
                 <h1 class="nom my-4">Salut, je suis <span class="prenom">Elowan.</span></h1>
                 <span class="fs-4 mt-4">
-                    Je suis <span class="job">développeur</span>, mais pas que !
+                    Je suis <span id="job" class="job">développeur</span>, mais pas que !
                 </span>
+            </div>
+        </div>
+        <div class="position-absolute bottom-0 start-50 translate-middle mb-2">
+            <div id="down-arrow" class="">
+                <i class="fa-solid fa-arrow-down fa-3x m-2"></i>
             </div>
         </div>
     </div>
@@ -38,7 +47,7 @@
                     depuis plus de 6 ans, en plus de m'essayer à la batterie et à la guitare.</p>
 
                 <p>Depuis maintenant quelques années, je prends beaucoup de plaisir à créer des vidéos
-                    courtes, pour partager par exemple des petits projets que j'ai pu faire (Hackintosh, 3D Printer, Snake, tutoriels...).
+                    courtes, pour partager ce que j'aime comme des petits projets que j'ai pu faire (Hackintosh, 3D Printer, Snake).
                     Même si mon passage en prépa a nettement stoppé cette activité...</p>
 
             </div>
@@ -181,7 +190,7 @@
         <div class="row mb-5">
             <h1>Pour rentrer en contact avec moi : </h1>
         </div>
-        <div class="row">
+        <div class="row mb-5">
             <div class="mx-lg-3 mt-3">
                 <div class="p-4 infotab">
                     <div>
@@ -201,4 +210,21 @@
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block scripts_bottom %}
+<script>
+var typed = new Typed('#job', {
+    strings: ['développeur', 'étudiant', 'traceur'],
+    typeSpeed: 100,
+    backDelay: 4000,
+    backSpeed: 50,
+    loop: true,
+});
+var down_btn = document.getElementById("down-arrow");
+down_btn.addEventListener("click", () => {
+    window.scrollTo({ left: 0, top: window.scrollY + window.innerHeight, behavior: "smooth" });
+})
+</script>
+
 {% endblock %}

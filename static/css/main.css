@@ -33,7 +33,7 @@ body {
 }
 
 .prenom {
-    color: #dd4d45ea;
+    color: #d66560;
 }
 
 header {
@@ -82,13 +82,13 @@ a:hover {
 }
 
 section {
-    min-height: 100vh;
     padding-top: 4rem;
     background-color: #F6ECE0;
 }
 
 #presentation {
-    background-color: #90989D;
+    min-height: 100vh;
+    background-color: #90989d;
 }
 
 #aboutme {
