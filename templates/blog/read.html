@@ -3,8 +3,7 @@
 {% block title %}{{article.title}}{% endblock %}
 {% block scripts_top %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
 <style>
     pre {
         white-space: pre-wrap;
@@ -42,7 +41,7 @@
 
 {% block content %}
 <section id="article">
-    <div class="container px-5 py-4 fs-5" style="max-width: 50rem;">
+    <div class="container px-5 py-4 fs-5" style="max-width: 55rem;">
         <h1 class="text-center fw-bold mb-4">{{ article.title }}</h1>
         {% if article.banner %}
         <div class="row">
@@ -66,14 +65,60 @@
 
 {% block scripts_bottom %}
 <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script>
+    function renderMarkdown(article){
+        var text = article.textContent;
+        var latex = [];
+        var latexInline = [];
+        var converter = new showdown.Converter({})
+
+        // Escape every math occurrence in the article
+        // to prevent markdown from rendering it wrongly 
+        // Uses ¤ to know whether or not there was a equation at
+        // this place before
+
+        // $$ Equations
+        text.replace(/\$\$([^$]*)\$\$/g, function (str, match) {
+            text = text.replace(str, "¤¤")
+            latex.push(str)
+        })
+
+        // $ Equations
+        text.replace(/\$([^$]*)\$/g, function (str, match) {
+            text = text.replace(str, "¤")
+            latexInline.push(str)
+        })
+
+        // Renders Markdown
+        var html = converter.makeHtml(text);
+        article.innerHTML = html;
+
+        // Put the latex equations back into the html
+        text = article.innerHTML;
+        let iLatex = 0;
+        let iLatexInline = 0;
+
+        text.replace(/¤¤/g, function (str, match) {
+            text = text.replace(str, "$"+latex[iLatex]+"$");
+            iLatex++;
+        })
+
+        text.replace(/¤/g, function (str, match) {
+            text = text.replace(str, latexInline[iLatexInline])
+            iLatexInline++;
+        })
+
+        article.innerHTML = text;
+
+    }
+
     document.addEventListener("DOMContentLoaded", function() {
         // Converts the markdown to HTML
-        var converter = new showdown.Converter({})
         var article = document.getElementById("content");
-        var html = converter.makeHtml(article.textContent);
-        article.innerHTML = html;
+        renderMarkdown(article);
 
         // Converts the latex to HTML
         renderMathInElement(article, {
@@ -86,6 +131,9 @@
             throwOnError : true,
 
         });
+
+        // Highlights code
+        hljs.highlightAll()
     });
 </script>
 {% endblock %}
