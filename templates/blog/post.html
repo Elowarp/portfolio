@@ -1,0 +1,50 @@
+{% extends '../base.html' %}
+
+{% block content %}
+<section style="min-height: 100vh">
+    <div class="container">
+        <div class="row">
+            <h1 class="my-5">Création d'un article</h1>
+            <form id="post_form" method="post" action="" enctype="multipart/form-data">
+    
+                {% csrf_token %}
+                {% for hidden in postForm.hidden_fields %}
+                    {{ hidden }}
+                {% endfor %}
+            
+                {% for field in postForm %}
+                    <div class="mb-3">
+                        {{field.errors}}
+                        <label class="form-label">{{field.label}}</label>
+                        {{field}}
+                    </div>
+                  
+                {% endfor %}
+
+                <hr class="my-5">
+                
+                <h4>Images associées à l'article</h4>
+                <p>Pour mettre en ligne des images, il faut mettre 
+                    `![Texte description](media NomImage.png)`avec "Texte 
+                    Description" la description textuelle de l'image et 
+                    "NomImage.png" le nom de fichier de l'image
+                </p>
+                {{ formset.management_form }}
+                {% for form in formset %}
+                    <div class="mb-3">
+                        <label class="form-label">{{field.label}}</label>
+                        {{form}}
+                    </div>
+                {% endfor %}
+            
+            
+                <div class="mb-3 mt-5">
+                    <input class="form-control" type="submit" 
+                    name="submit" value="Valider" />
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

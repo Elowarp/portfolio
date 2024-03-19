@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load url_media %}
+
 {% block title %}{{article.title}}{% endblock %}
 {% block scripts_top %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
@@ -40,7 +42,7 @@
 
 {% block content %}
 <section id="article">
-    <div class="container px-5 py-4 fs-5" style="max-width: 55rem;">
+    <div class="container px-5 py-4 fs-5" style="max-width: 55rem; min-height: 100vh;">
         <h1 class="text-center fw-bold mb-4">{{ article.title }}</h1>
         {% if article.banner %}
         <div class="row">
@@ -51,12 +53,16 @@
             </div>
         </div>
         {% endif %}
-        <div id="content" class="row mt-3">{{ article.text }}</div>
-        <div id="meta" class="row mt-3 text-end">
-            <span class="text-muted">Par <span class="fw-bold">{{article.author}}</span>, le <span class="fw-bold">{{article.pub_date}}</span>.</span>
-        </div>
-        <div class="row mt-2">
-            <a href="{%url 'index'%}#blog" class="text-center">Retour</a>
+        <div id="content" class="row mt-3">{{ article.text | url_media:article.slug_name }}</div>
+        
+        <div class="position-relative bottom-0">
+            <div id="meta" class="row mt-3 text-end">
+                <span class="text-muted">Par <span class="fw-bold">{{article.author}}</span>, le <span class="fw-bold">{{article.pub_date}}</span>.</span>
+            </div>
+            <div class="row mt-2">
+                <a href="{%url 'index'%}#blog" class="text-center">Retour</a>
+            </div>
+
         </div>
     </div>
 </section>
