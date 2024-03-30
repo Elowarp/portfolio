@@ -26,3 +26,7 @@ def get_image_filename(instance, filename):
 class Image(models.Model):
     post = models.ForeignKey(Post, default=None, on_delete=models.CASCADE)
     image = models.ImageField(upload_to=get_image_filename, verbose_name="Image")
+
+    def __str__(self):
+        slug = self.post.slug_name
+        return "%s/%s" % slug

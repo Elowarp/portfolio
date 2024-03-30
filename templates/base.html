@@ -15,6 +15,7 @@
     
     {% load static %}
     <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'images/favicon.png'%}" rel="icon">
 </head>
 
 <body>
@@ -22,6 +23,9 @@
     <header class="fixed-top">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container">
+                <!-- <a class="navbar-brand" href="/">
+                    <img src="{% static 'images/favicon.png' %}" height="40">
+                  </a> -->
                 <div></div>
                 <div class="d-flex align-items-end">
                     <ul class="navbar-nav">
@@ -55,7 +59,8 @@
     <footer>
         <div class="container text-white">
             <div class="text-center pt-3">© Copyright 2024. Tous droits réservés.</div>
-            <div class="text-center pt-3">Icones venant de <a class="text-white" target="_blank" href="https://devicon.dev/">Devicon</a> et <a class="text-white" target="_blank" href="https://fontawesome.com/">FontAwesome</a></div>
+            <div class="text-center pt-3">Icones venant de <a class="text-white" target="_blank" href="https://devicon.dev/">Devicon</a> et <a class="text-white" target="_blank" href="https://fontawesome.com/">FontAwesome</a> ainsi 
+                que la favicon par <a class="text-white" target="_blank" href="https://www.flaticon.com/authors/torskaya">Torskaya</a> </div>
 
             <div class="text-center pt-3"><a href="{% url 'legal' %}" class="text-white">Mentions légales</a></div>
             <div class="row py-3">
