@@ -15,6 +15,7 @@ class Post(models.Model):
     pub_date = models.DateTimeField("date published", auto_now_add=True)
     last_modified_date = models.DateTimeField("date last modified", 
                                               auto_now=True)
+    is_visible = models.BooleanField("Est visible", default=False, )
     
     def __str__(self):
         return self.slug_name
@@ -29,4 +30,5 @@ class Image(models.Model):
 
     def __str__(self):
         slug = self.post.slug_name
-        return "%s/%s" % slug
+        return "%s" % slug
+

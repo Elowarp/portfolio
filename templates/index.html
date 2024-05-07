@@ -134,28 +134,30 @@
         <h1>Pour une lecture en détails de certains de mes projets :</h1>
         <div class="row mt-4">
             {% for article in articles %}
-            <div class="col-lg-4 col-12">
-                <a href="{% url 'read_article' article.slug_name %}" class="text-decoration-none">
-                    <div class="card bg-dark text-white my-3">
-                        {%if article.banner %}
-                        <div class="ratio ratio-16x9" >
-                            <div class="overflow-hidden">
-                                <img src="{{ MEDIA_URL }}{{ article.banner }}" 
-                                    class="card-img" 
-                                    alt="{{article.image}}" 
-                                    loading="lazy">
+                {% if article.is_visible %}
+                <div class="col-lg-4 col-12">
+                    <a href="{% url 'read_article' article.slug_name %}" class="text-decoration-none">
+                        <div class="card bg-dark text-white my-3">
+                            {%if article.banner %}
+                            <div class="ratio ratio-16x9" >
+                                <div class="overflow-hidden">
+                                    <img src="{{ MEDIA_URL }}{{ article.banner }}" 
+                                        class="card-img" 
+                                        alt="{{article.image}}" 
+                                        loading="lazy">
+                                </div>
+                            </div>
+                            {%endif%}
+
+                            <div class="card-body">
+                                <h5 class="card-title" style="min-height: 2lh;">{{ article.title }}</h5>
+                                <p class="card-text fs-6">Par {{ article.author }}</p>
+                                <small class="card-text">{{ article.pub_date | date:'d N Y' }}</small>
                             </div>
                         </div>
-                        {%endif%}
-
-                        <div class="card-body">
-                            <h5 class="card-title" style="min-height: 2lh;">{{ article.title }}</h5>
-                            <p class="card-text fs-6">Par {{ article.author }}</p>
-                            <small class="card-text">{{ article.pub_date | date:'d N Y' }}</small>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
+                {% endif %}
             {% endfor %}
         </div>
         <!-- <div class="row mt-5">

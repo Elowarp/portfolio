@@ -37,6 +37,10 @@
         max-width: 100%;
         height: auto;
     }
+
+    p:has(> img){
+        text-align: center;
+    }
 </style>
 {% endblock %}
 
@@ -50,6 +54,16 @@
                 <div style="overflow-y: hidden">
                     <img src="{{MEDIA_URL}}{{article.banner}}" alt="{{article.banner}}" style="width:100%; transform: translateY(-15%);">
                 </div>
+            </div>
+        </div>
+        {% endif %}
+        {% if not article.is_visible %}
+        <div class="row mt-5">
+            <div class="alert alert-danger">
+                <h4 class="alert-heading">Article non répertorié.</h4>
+                <p>Vous êtes actuellement en train de lire un article non répertorié sur le site internet. Il est probable qu'il soit 
+                    simplement encore en cours de rédaction ou de peaufinage...
+                </p>
             </div>
         </div>
         {% endif %}
@@ -78,7 +92,10 @@
         var text = article.textContent;
         var latex = [];
         var latexInline = [];
-        var converter = new showdown.Converter({})
+        var converter = new showdown.Converter({
+            "openLinksInNewWindow": true,
+
+        })
 
         // Escape every math occurrence in the article
         // to prevent markdown from rendering it wrongly 

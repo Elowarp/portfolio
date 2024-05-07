@@ -8,10 +8,12 @@ class PostForm(forms.ModelForm):
                             widget=forms.FileInput(attrs={"class":"form-control"}),
                             required=False)
     text = forms.CharField(label="Article", widget=forms.Textarea(attrs={"class":"form-control"}))
+    
+    is_visible = forms.BooleanField(label="Doit être visible lors de la mise en ligne ?")
  
     class Meta:
         model = Post
-        fields = ('title', 'text', 'banner', )
+        fields = ('title', 'text', 'banner', 'is_visible')
  
  
 class ImageForm(forms.ModelForm):
