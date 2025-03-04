@@ -31,13 +31,14 @@
             <h1>Qui est <span class="prenom">Elowan</span> ?</h1>
         </div>
         <div class="row mb-5">
-            <div class="col-12 col-lg-4 mb-3">
+            <!-- <div class="col-12 col-lg-4 mb-3">
                 <div class="profil mx-auto d-block">
                     <img src="{% static 'images/photoCV.jpg'%}" alt="image de profil" class="profil-img ">
                 </div>
 
-            </div>
-            <div id="description" class="col-12 col-lg-8">
+            </div> -->
+            <!-- <div id="description" class="col-12 col-lg-8"> -->
+            <div id="description" class="col-12">
                 <p id="quick-desc">
                     Un étudiant curieux et passionné par l'informatique.
                 </p>
@@ -64,10 +65,10 @@
                 <i class="fa-brands fa-python fa-5x"></i>
                 <span class="text-icon">Python</span>
             </div>
-            <div class="col-4 col-md-3 col-lg-2 icons-skills">
+            <!-- <div class="col-4 col-md-3 col-lg-2 icons-skills">
                 <i class="devicon-django-plain fa-5x"></i>
                 <span class="text-icon">Django</span>
-            </div>
+            </div> -->
             <div class="col-4 col-md-3 col-lg-2  icons-skills">
                 <i class="devicon-c-plain fa-5x"></i>
                 <span class="text-icon">C</span>
@@ -112,20 +113,6 @@
                 <span class="text-icon">Suite Adobe</span>
             </div>
         </div>
-        <!-- <div class="row mt-3">
-            <div class="col-12 col-lg-2 col-md-3 d-none d-md-flex">
-                <img src="{% static 'images/england.png'%}" alt="Drapeau anglais" style="width:11rem"
-                    class="float-start">
-
-            </div>
-            <div class="col-md-1">
-                <div class="w-100"></div>
-            </div>
-            <div class="col-12 col-md-8 col-lg-9 m-auto">
-                <span id="english" class="fs-4">Ainsi qu'un niveau <span style="color:#FFFDFD">C1</span> en
-                anglais.</span>
-            </div>
-        </div> -->
     </div>
 </section>
 <div class="angle angle2"></div>
@@ -160,33 +147,6 @@
                 {% endif %}
             {% endfor %}
         </div>
-        <!-- <div class="row mt-5">
-            <h3>Vous pouvez aussi voir des sites vitrines montrant mes capacités sur le "terrain", pouvant vous inspirer différentes commandes à me faire ;)</h3>
-        </div>
-        <span class="d-block fs-6 text-muted my-3">Info à savoir : Les sites ne sont que des vitrines non
-            fonctionnelles, elles n'ont pour but que de vous donner de l'inspiration quant à votre projet. Une seule
-            page n'est disponible par "thème" mais le produit final contiendra autant de pages que
-            nécessaires.</span>
-        <div class="row mt-3">
-            {% for page in pages%}
-            <div class="col-lg-4 col-12">
-                <a href="/sites?id={{page.id}}" class="text-decoration-none">
-                    <div class="card bg-dark text-white my-3">
-                        {%if page.image %}<img src="/media/{{page.image}}" class="card-img" alt="{{page.image}}" loading="lazy">{% endif %}
-                        <div class="card-body">
-                            <h5 class="card-title">{{ page.name }}</h5>
-                            <p class="card-text fs-6">{{ page.description }}</p>
-                            <small class="card-text">{{ page.date| date:'d N Y' }}</small>
-                            {% if page.prix %}<small class="d-block">Estimation: {{page.prix}} €</small>{% endif %}
-                        </div>
-                    </div>
-                </a>
-            </div>
-            {% endfor %}
-        </div>
-        <div class="row mt-2">
-            <span class="fs-4 text-center">Et d'autres sont encore à venir !!</span>
-        </div> -->
     </div>
 
 </section>
@@ -207,9 +167,6 @@
                     <div class="mt-5">
                         <img src="{% static 'images/mail.png' %}" alt="Mail icone, Icone par icones8.fr">
                         <span class="ms-3 fs-6 text-black">elowarp [AT] gmail [DOT] com</span>
-                    </div>
-                    <div class="mt-5">
-                        <span class=" fs-5 text-black">Ou directement sur les réseaux sociaux : @elowarp (Instagram)</span>
                     </div>
                 </div>
             </div>
