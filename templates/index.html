@@ -1,3 +1,10 @@
+<!--
+ -  Contact : Elowan - elowarp@gmail.com
+ -  Creation : 25-07-2025 17:13:34
+ -  Last modified : 25-07-2025 17:13:34
+ -  File : index.html copy.old
+-->
+
 {% extends "base.html" %}
 
 {% load static %}
@@ -7,125 +14,71 @@
 {% endblock %}
 
 {% block content %}
-<section id="presentation" class="d-flex align-items-center text-white">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h1 class="nom my-4">Salut, je suis <span class="prenom">Elowan.</span></h1>
-                <span class="fs-4 mt-4">
-                    Je suis <span id="job" class="job">développeur</span>, mais pas que !
-                </span>
-            </div>
+ <!-- Landing -->
+<div class="landing p-5 d-flex">
+    <div class="col-6 d-flex align-content-between flex-wrap">
+        <div class="landing-text">
+            <p>Salut, </p>
+            <p>Je suis <span style="color: var(--txt-highlight)">Elowan H</span> - <span id="job">étudiant</span> </p>
         </div>
-        <div class="position-absolute bottom-0 start-50 translate-middle mb-2">
-            <div id="down-arrow" role="button">
-                <i class="fa-solid fa-arrow-down fa-3x m-2"></i>
+        
+        <div class="mt-auto" style="font-size: 1.1em">
+            <ul class="p-0 list-group">
+                <li class="list-group-item">> <a href="mailto://elowarp[at]gmail[dot]com">elowarp [at] gmail [dot] com</a></li>
+                <li class="list-group-item">> Lyon, France</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="d-flex justify-content-center">
+            <div class="figure">
+                <img class="d-block figure-img" src="{% static 'images/index/gifChat.gif' %}">
+                Figure : Chat Wikipédia 
             </div>
         </div>
     </div>
-</section>
-<section id="aboutme">
-    <div class="container py-5">
-        <div class="row mb-4">
-            <h3>À ce propos..</h3>
-            <h1>Qui est <span class="prenom">Elowan</span> ?</h1>
+    <div class="position-absolute bottom-0 start-50 translate-middle mb-5">
+        <div id="down-arrow" role="button">
+            <i class="fa-solid fa-arrow-down fa-3x m-2"></i>
         </div>
-        <div class="row mb-5">
-            <!-- <div class="col-12 col-lg-4 mb-3">
-                <div class="profil mx-auto d-block">
-                    <img src="{% static 'images/photoCV.jpg'%}" alt="image de profil" class="profil-img ">
-                </div>
+    </div>
+</div>
 
-            </div> -->
-            <!-- <div id="description" class="col-12 col-lg-8"> -->
-            <div id="description" class="col-12">
-                <p id="quick-desc">
-                    Un étudiant curieux et passionné par l'informatique.
+<!-- Descriptions -->
+<div class="container" style="margin-bottom: 20vh;">
+    <div class="row">
+        <div class="col-1">
+            <strong>Travaux</strong>
+        </div>
+        <div class="col-11">
+            <div class="row">
+                <h5>Etude de la couverture des réseaux de métros</h5>
+
+                <p>
+                    Dans le cadre du concours pour les Ecoles Normales 
+                    Supérieure (TIPE) j'ai été amené à étudier les
+                    réseaux métropolitains et en particulier les 
+                    zones les moins bien desservies en utilisant de la 
+                    topologie (Homologie persistante) et de l'informatique.  
                 </p>
-                
-                <p class="my-4">Actuellement en classe de MPI étoilée au lycée Thiers à Marseille, je compte poursuivre des études 
-                    tournées majoritairement vers les sciences et l'informatique. Je pratique en parallèle le Parkour/Freerunning 
-                    depuis plus de 6 ans, en plus de m'essayer à la batterie et à la guitare.</p>
 
-                <p>Depuis maintenant quelques années, je prends beaucoup de plaisir à créer des vidéos
-                    courtes, pour partager ce que j'aime comme des petits projets que j'ai pu faire (<a target="_blank" href="https://youtu.be/8XdfuNv18dg?si=f06wujRTuUvko7gg">Hackintosh</a>,
-                    3D Printer, Snake, ...). Même si mon passage en prépa a nettement stoppé cette activité...</p>
-
+                <p class="w-100 text-end">Source : <a href="/files/metros.pdf">Rapport</a></p>
             </div>
+            <hr>
         </div>
     </div>
-</section>
-<div class="angle angle1"></div>
-<section id="skills">
-    <div class="container py-5">
-        <h1>Mes compétences</h1>
-        <div class="row my-2">
-            <h3>Expérimenté</h3>
-            <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                <i class="fa-brands fa-python fa-5x"></i>
-                <span class="text-icon">Python</span>
-            </div>
-            <!-- <div class="col-4 col-md-3 col-lg-2 icons-skills">
-                <i class="devicon-django-plain fa-5x"></i>
-                <span class="text-icon">Django</span>
-            </div> -->
-            <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                <i class="devicon-c-plain fa-5x"></i>
-                <span class="text-icon">C</span>
-            </div>
-            <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                <i class="devicon-ocaml-plain fa-5x"></i>
-                <span class="text-icon">Ocaml</span>
-            </div>
-            <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                <i class="fa-brands fa-linux fa-5x"></i>
-                <span class="text-icon">Linux</span>
-            </div>
+
+    <div class="row">
+        <div class="col-1">
+            <strong>Posts récents</strong>
         </div>
-        <div class="row my-2">
-            <h3>Initié</h3>
-            <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                <i class="devicon-latex-plain fa-5x"></i>
-                <span class="text-icon">Latex</span>
-            </div>
-            <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                <i class="fa-brands fa-js-square fa-5x"></i>
-                <span class="text-icon">Javascript</span>
-            </div>
-            <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                <i class="fa-solid fa-database fa-5x"></i>
-                <span class="text-icon">Base de données</span>
-            </div>
-        </div>
-        <div class="row my-2">
-            <h3>Outils</h3>
-            <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                <i class="fa-brands fa-git-alt fa-5x"></i>
-                <span class="text-icon">Git</span>
-            </div>
-            <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                <i class="devicon-vscode-plain fa-5x"></i>
-                <span class="text-icon">VS Code</span>
-            </div>
-            <div class="col-4 col-md-3 col-lg-2  icons-skills">
-                <img src="{% static 'images/adobe.png' %}" alt="Adobe icone" class="m-auto"
-                    style="width:6em; display: block; margin-bottom: 10px;">
-                <span class="text-icon">Suite Adobe</span>
-            </div>
-        </div>
-    </div>
-</section>
-<div class="angle angle2"></div>
-<section id="blog">
-    <div class="container py-5">
-        <h1>Pour une lecture en détails de certains de mes projets :</h1>
-        <div class="row mt-4">
+        <div class="col-11">
             {% for article in articles %}
                 {% if article.is_visible %}
-                <div class="col-lg-4 col-12">
-                    <a href="{% url 'read_article' article.slug_name %}" class="text-decoration-none">
-                        <div class="card bg-dark text-white my-3">
-                            {%if article.banner %}
+                <div class="row">
+                        <div class="">
+                            <h5 class="card-title">{{ article.title }}</h5>
+                            <!-- {%if article.banner %}
                             <div class="ratio ratio-16x9" >
                                 <div class="overflow-hidden">
                                     <img src="{{ MEDIA_URL }}{{ article.banner }}" 
@@ -134,60 +87,47 @@
                                         loading="lazy">
                                 </div>
                             </div>
-                            {%endif%}
+                            {%endif%} -->
+                            <p> 
+                                Dans le cadre du concours pour les Ecoles Normales 
+                                Supérieure (TIPE) j'ai été amené à étudier les
+                                réseaux métropolitains et en particulier les 
+                                zones les moins bien desservies en utilisant de la 
+                                topologie (Homologie persistante) et de l'informatique.
+                            </p>
+                            
+                            <div class="d-flex flex-row">
+                                <p class="w-75">Par {{ article.author }} le {{ article.pub_date | date:'d N Y' }}</p>
+                                <a href="{% url 'read_article' article.slug_name %}" class="text-decoration-none w-25 text-end">
+                                    Se rendre au post
+                                </a>
 
-                            <div class="card-body">
-                                <h5 class="card-title" style="min-height: 2lh;">{{ article.title }}</h5>
-                                <p class="card-text fs-6">Par {{ article.author }}</p>
-                                <small class="card-text">{{ article.pub_date | date:'d N Y' }}</small>
                             </div>
+
                         </div>
-                    </a>
                 </div>
+                <hr>
                 {% endif %}
             {% endfor %}
-        </div>
-    </div>
 
-</section>
-<div class="angle angle3"></div>
-<section id="contactme">
-    <div class="container py-5">
-        <div class="row mb-5">
-            <h1>Pour rentrer en contact avec moi : </h1>
-        </div>
-        <div class="row mb-5">
-            <div class="mx-lg-3 mt-3">
-                <div class="p-4 infotab">
-                    <div>
-                        <img src="{% static 'images/location.png' %}"
-                            alt="Localisation icone, Icone par icones8.fr">
-                        <span class="ms-3 fs-6 text-black">Montauban / Marseille, France</span>
-                    </div>
-                    <div class="mt-5">
-                        <img src="{% static 'images/mail.png' %}" alt="Mail icone, Icone par icones8.fr">
-                        <span class="ms-3 fs-6 text-black">elowarp [AT] gmail [DOT] com</span>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
-</section>
+</div>
 {% endblock %}
 
 {% block scripts_bottom %}
 <script>
-var typed = new Typed('#job', {
-    strings: ['développeur', 'étudiant', 'traceur'],
-    typeSpeed: 100,
-    backDelay: 4000,
-    backSpeed: 50,
-    loop: true,
-});
-var down_btn = document.getElementById("down-arrow");
-down_btn.addEventListener("click", () => {
-    window.scrollTo({ left: 0, top:window.innerHeight, behavior: "smooth" });
-})
+    var typed = new Typed('#job', {
+        strings: ['développeur', 'étudiant', 'traceur'],
+        typeSpeed: 70,
+        backDelay: 2000,
+        backSpeed: 50,
+        loop: true,
+    });
+    var down_btn = document.getElementById("down-arrow");
+    down_btn.addEventListener("click", () => {
+        window.scrollTo({ left: 0, top:0.8*window.innerHeight, behavior: "smooth" });
+    })
 </script>
 
 {% endblock %}
