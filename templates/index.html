@@ -17,31 +17,36 @@
 
 {% block content %}
  <!-- Landing -->
-<div class="landing p-5 d-flex">
-    <div class="col-6 d-flex align-content-between flex-wrap">
-        <div class="landing-text">
-            <p>Salut, </p>
-            <p>Je suis <span style="color: var(--txt-highlight)">Elowan H</span> - <span id="job">étudiant</span> </p>
-        </div>
-        
-        <div class="mt-auto" style="font-size: 1.1em">
-            <ul class="p-0 list-group">
-                <li class="list-group-item">> <a href="mailto://elowarp[at]gmail[dot]com" target="_blank">elowarp [at] gmail [dot] com</a></li>
-                <li class="list-group-item">> Lyon, France</li>
-            </ul>
-        </div>
-    </div>
-    <div class="col-6">
-        <div class="d-flex justify-content-center">
-            <div class="figure">
-                <img class="d-block figure-img" src="{% static 'images/index/gifChat.gif' %}">
-                Figure : Chat Wikipédia 
+<div class="container-fluid">
+    <div class="row flex-grow-1">
+        <div class="landing p-5 d-block d-md-flex">
+            <div class="col-md-6 col-12 d-md-flex align-content-between flex-wrap d-block">
+                <div class="landing-text">
+                    <p><span data-bs-toggle="tooltip" data-bs-title="c'est Frank Leboeuf,
+                        vous voulez savoir combien coûte votre voiture ?">Salut</span>, </p>
+                    <p>Je suis <span class="highlight">Elowan H</span> - <span id="job">étudiante</span> </p>
+                </div>
+                
+                <div class="d-md-flex d-none mt-auto mx-0" style="font-size: 1.1em">
+                    <ul class="p-0 list-group mx-0">
+                        <li class="list-group-item">> <a href="mailto://elowarp[at]gmail[dot]com" target="_blank">elowarp [at] gmail [dot] com</a></li>
+                        <li class="list-group-item">> Lyon, France</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="position-absolute bottom-0 start-50 translate-middle mb-5">
-        <div id="down-arrow" role="button">
-            <i class="fa-solid fa-arrow-down fa-3x m-2"></i>
+            <div class="col-md-6">
+                <div class="d-flex justify-content-center align-items-center h-100">
+                    <div class="figure">
+                        <img class="d-block figure-img" src="{% static 'images/index/gifChat.gif' %}" loading="lazy">
+                        Figure : Chat Wikipédia 
+                    </div>
+                </div>
+            </div>
+            <div class="position-absolute bottom-0 start-50 translate-middle mb-5">
+                <div id="down-arrow" role="button">
+                    <i class="fa-solid fa-arrow-down fa-3x m-2 highlight"></i>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -49,36 +54,45 @@
 <!-- Descriptions -->
 <div class="container" style="margin-bottom: 20vh;">
     <div class="row">
-        <div class="col-1">
+        <hr class="d-block d-md-none mt-3">
+        <div class="col-md-1">
             <strong>Travaux</strong>
         </div>
-        <div class="col-11">
+        <hr class="d-block d-md-none mt-3">
+        <div class="col-md-11">
             <div class="row">
-                <h5>Etude de la couverture des réseaux de métros</h5>
+                <h5>Étude de la couverture des réseaux de métros</h5>
 
                 <p>
-                    Dans le cadre du concours pour les Ecoles Normales 
-                    Supérieure (TIPE) j'ai été amené à étudier les
+                    Dans le cadre du 
+                    <a href="https://diplome.di.ens.fr/informatique-ens/" target="_blank">concours pour les 
+                    Écoles Normales Supérieure</a> (TIPE), j'ai été amenée à étudier les
                     réseaux métropolitains et en particulier les 
                     zones les moins bien desservies en utilisant de la 
                     topologie (Homologie persistante) et de l'informatique.  
                 </p>
 
-                <p class="w-100 text-end"> 
+                <div class="d-flex flex-row w-100">
+                    <p class="w-75">
+                        Juillet 2025
+                    </p>
                     <a href="https://github.com/Elowarp/TIPE-2024-25/blob/main/rapport.pdf" 
-                       target="_blank">
-                       Rapport
+                        class="text-decoration-none w-25 text-end" target="_blank">
+                        Rapport
                     </a>
-                </p>
+
+                </div>
             </div>
         </div>
     </div>
-    <hr>
+    <hr class="d-none d-md-block">
     <div class="row">
-        <div class="col-1">
+        <hr class="d-block d-md-none mt-3">
+        <div class="col-md-1">
             <strong>Posts récents</strong>
         </div>
-        <div class="col-11">
+        <hr class="d-block d-md-none mt-3">
+        <div class="col-md-11">
             {% for article in articles %}
                 {% if article.is_visible %}
                 <div class="row">
@@ -112,15 +126,23 @@
 {% block scripts_bottom %}
 <script>
     var typed = new Typed('#job', {
-        strings: ['développeur', 'étudiant', 'traceur'],
+        strings: ['développeuse', 'étudiante', 'traceuse'],
         typeSpeed: 70,
         backDelay: 2000,
         backSpeed: 50,
         loop: true,
     });
     var down_btn = document.getElementById("down-arrow");
+    var menutel = document.getElementById("menu-tel"); // Récupère le menu tel
+    var menupc = document.getElementById("menu-pc"); // Récupère le menu pc
+
+    // Choisis le menu affiché 
+    var menu;
+    if (menupc.offsetHeight == 0) {menu = menutel} else {menu = menupc}
+
+    // Scroll de la bonne hauteur
     down_btn.addEventListener("click", () => {
-        window.scrollTo({ left: 0, top:0.8*window.innerHeight, behavior: "smooth" });
+        window.scrollTo({ left: 0, top:window.innerHeight - menu.offsetHeight, behavior: "smooth" });
     })
 </script>
 

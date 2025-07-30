@@ -4,7 +4,8 @@
 
 {% block title %}{{article.title}}{% endblock %}
 {% block scripts_top %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+    integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
 <style>
     pre {
@@ -33,26 +34,27 @@
         font-style: oblique;
     }
 
-    p > img {
+    p>img {
         max-width: 100%;
         height: auto;
     }
 
-    p:has(> img){
+    p:has(> img) {
         text-align: center;
     }
 </style>
 {% endblock %}
 
 {% block content %}
-<section id="article">
+<div id="article">
     <div class="container px-5 py-4 fs-5" style="max-width: 55rem; min-height: 100vh;">
         <h1 class="text-center fw-bold mb-4">{{ article.title }}</h1>
         {% if article.banner %}
         <div class="row">
-            <div class="ratio ratio-16x9" >
+            <div class="ratio ratio-16x9">
                 <div style="overflow-y: hidden">
-                    <img src="{{MEDIA_URL}}{{article.banner}}" alt="{{article.banner}}" style="width:100%; transform: translateY(-15%);">
+                    <img src="{{MEDIA_URL}}{{article.banner}}" alt="{{article.banner}}"
+                        style="width:100%; transform: translateY(-15%);">
                 </div>
             </div>
         </div>
@@ -61,101 +63,108 @@
         <div class="row mt-5">
             <div class="alert alert-danger">
                 <h4 class="alert-heading">Article non répertorié.</h4>
-                <p>Vous êtes actuellement en train de lire un article non répertorié sur le site internet. Il est probable qu'il soit 
+                <p>
+                    Vous êtes actuellement en train de lire un article non 
+                    répertorié sur le site internet. Il est probable qu'il soit
                     simplement encore en cours de rédaction ou de peaufinage...
                 </p>
             </div>
         </div>
         {% endif %}
         <div id="content" class="row mt-3">{{ article.text | url_media:article.slug_name }}</div>
-        
+
         <div class="position-relative bottom-0">
             <div id="meta" class="row mt-3 text-end">
-                <span class="text-muted">Par <span class="fw-bold">{{article.author}}</span>, le <span class="fw-bold">{{article.pub_date}}</span>.</span>
+                <span class="text-muted">Le <span class="fw-bold">{{article.pub_date}}</span>,
+                    modifié le <span class="fw-bold">{{article.last_modified_date}}</span>.</span>
             </div>
             <div class="row mt-2">
-                <a href="{%url 'blog'%}" class="text-center">Retour</a>
+                <a href="{%url 'blog'%}" class="text-center arrow-after">Retour</a>
             </div>
 
         </div>
     </div>
-</section>
-{% endblock %}
+    </section>
+    {% endblock %}
 
-{% block scripts_bottom %}
-<script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-<script>
-    function renderMarkdown(article){
-        var text = article.textContent;
-        var latex = [];
-        var latexInline = [];
-        var converter = new showdown.Converter({
-            "openLinksInNewWindow": true,
+    {% block scripts_bottom %}
+    <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+        integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        function renderMarkdown(article) {
+            var text = article.textContent;
+            var latex = [];
+            var latexInline = [];
+            var converter = new showdown.Converter({
+                "openLinksInNewWindow": true,
 
-        })
+            })
 
-        // Escape every math occurrence in the article
-        // to prevent markdown from rendering it wrongly 
-        // Uses ¤ to know whether or not there was a equation at
-        // this place before
+            // Escape every math occurrence in the article
+            // to prevent markdown from rendering it wrongly 
+            // Uses ¤ to know whether or not there was a equation at
+            // this place before
 
-        // $$ Equations
-        text.replace(/\$\$([^$]*)\$\$/g, function (str, match) {
-            text = text.replace(str, "¤¤")
-            latex.push(str)
-        })
+            // $$ Equations
+            text.replace(/\$\$([^$]*)\$\$/g, function (str, match) {
+                text = text.replace(str, "¤¤")
+                latex.push(str)
+            })
 
-        // $ Equations
-        text.replace(/\$([^$]*)\$/g, function (str, match) {
-            text = text.replace(str, "¤")
-            latexInline.push(str)
-        })
+            // $ Equations
+            text.replace(/\$([^$]*)\$/g, function (str, match) {
+                text = text.replace(str, "¤")
+                latexInline.push(str)
+            })
 
-        // Renders Markdown
-        var html = converter.makeHtml(text);
-        article.innerHTML = html;
+            // Renders Markdown
+            var html = converter.makeHtml(text);
+            article.innerHTML = html;
 
-        // Put the latex equations back into the html
-        text = article.innerHTML;
-        let iLatex = 0;
-        let iLatexInline = 0;
+            // Put the latex equations back into the html
+            text = article.innerHTML;
+            let iLatex = 0;
+            let iLatexInline = 0;
 
-        text.replace(/¤¤/g, function (str, match) {
-            text = text.replace(str, "$"+latex[iLatex]+"$");
-            iLatex++;
-        })
+            text.replace(/¤¤/g, function (str, match) {
+                text = text.replace(str, "$" + latex[iLatex] + "$");
+                iLatex++;
+            })
 
-        text.replace(/¤/g, function (str, match) {
-            text = text.replace(str, latexInline[iLatexInline])
-            iLatexInline++;
-        })
+            text.replace(/¤/g, function (str, match) {
+                text = text.replace(str, latexInline[iLatexInline])
+                iLatexInline++;
+            })
 
-        article.innerHTML = text;
+            article.innerHTML = text;
 
-    }
+        }
 
-    document.addEventListener("DOMContentLoaded", function() {
-        // Converts the markdown to HTML
-        var article = document.getElementById("content");
-        renderMarkdown(article);
+        document.addEventListener("DOMContentLoaded", function () {
+            // Converts the markdown to HTML
+            var article = document.getElementById("content");
+            renderMarkdown(article);
 
-        // Converts the latex to HTML
-        renderMathInElement(article, {
-            delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false},
-                {left: '\\(', right: '\\)', display: false},
-                {left: '\\[', right: '\\]', display: true}
-            ],
-            throwOnError : true,
+            // Converts the latex to HTML
+            renderMathInElement(article, {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true }
+                ],
+                throwOnError: true,
 
+            });
+
+            // Highlights code
+            hljs.highlightAll()
         });
-
-        // Highlights code
-        hljs.highlightAll()
-    });
-</script>
-{% endblock %}
+    </script>
+    {% endblock %}

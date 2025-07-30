@@ -1,186 +1,173 @@
 <!--
  Contact : Elowan - elowarp@gmail.com
  Creation : 10-07-2025 18:31:13
- Last modified : 30-07-2025 10:56:03
+ Last modified : 30-07-2025 16:45:46
  File : index.html
 -->
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+  <head>
     {% load static %}
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- <script src="https://kit.fontawesome.com/f5889cb895.js" crossorigin="anonymous"></script> -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"> -->
-    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href="{% static 'images/favicon.png' %}" rel="icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/f5889cb895.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+    />
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" />
     {% block scripts_top %}{% endblock %}
 
     <title>{% block title%}{% endblock%} - Elo</title>
+  </head>
 
-    <style>
-        :root {
-            --bg-color: #eee3dd;
-            --txt-highlight: #cc4b96;
-            --txt-hover: #a20160;
-        }
-
-        body {
-            
-            background-color: var(--bg-color);
-        }
-
-        .menu-item {
-            border: 1px rgb(0, 0, 0) solid;
-            border-bottom: 0px;
-            font-size: 1.3em;
-            text-align: left;
-            background-color: var(--bg-color);
-        }
-
-        a {
-            color: var(--txt-highlight);
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: var(--txt-hover)
-        }
-
-        .landing-text {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1.7em;
-            font-weight: 500;
-            width: 100%;
-        }
-
-        .figure {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1.1em;
-            text-align: center;
-        }
-
-        .figure-img {
-            max-height: 400px;
-        }
-
-        .landing {
-            min-height: 90vh;
-        }
-
-        .arrow-after:after {
-            display: inline-block;
-            content: '';
-            -webkit-mask-size: contain;
-            mask-size: contain;
-            background-color: currentColor;
-            -webkit-mask: url(https://assets.website-files.com/60180dabe97688768823f75f/607565e1313a25574f28e4e4_arrow-right.svg) no-repeat 50% 50%;
-            mask: url(https://assets.website-files.com/60180dabe97688768823f75f/607565e1313a25574f28e4e4_arrow-right.svg) no-repeat 50% 50%;
-            margin: 0.1em 0 0 0.3em;
-            width: 0.75em;
-            height: 0.68em;
-        }
-
-        a[target="_blank"]:after {  
-            display: inline-block;
-            content: '';
-            -webkit-mask-size: contain;
-            mask-size: contain;
-            background-color: currentColor;
-            -webkit-mask: url(https://assets.website-files.com/608fb40c3d9b077577fce197/60dd69136bc238e82174de73_external-link.svg) no-repeat 50% 50%;
-            mask: url(https://assets.website-files.com/608fb40c3d9b077577fce197/60dd69136bc238e82174de73_external-link.svg) no-repeat 50% 50%;
-            margin: -0.3em -0.2em -0.25em 0.05em;
-            width: 1.1em;
-            height: 1.1em;
-        }
-
-        /* Dont show an arrow on elements with the class "no-arrow" or linked images */
-
-        a.no-arrow[target="_blank"]:after, figure a[target="_blank"]:after {  
-            content: none;
-        }
-    </style>
-</head>
-
-<body>
-    <main class="pb-5" style="min-height: 100vh;">
-        {% block content %}Il n'y à rien à voir :({% endblock %}
+  <body>
+    <main class="pb-5">
+      {% block content %}Il n'y à rien à voir :({% endblock %}
     </main>
 
-    <!-- Navbar -->
-    <div class="fixed-bottom">
-        <div class="d-flex justify-content-evenly">
-            <div class="menu-item p-3 flex-grow-1">
-                <a href="{% url 'blog'%}" class="{% if page == 'blog' %}active{%endif%} p-3 arrow-after">
-                        Blog
-                </a>
-            </div>
-            <div class="menu-item p-3 flex-grow-1" style="border-left: 0px; border-right: 0px">
-                <a href="{% url 'index' %}" class="{% if page == 'index' %}active{%endif%} p-3 arrow-after">
-                        Accueil
-                </a>
-            </div>
-            <div class="menu-item p-3 flex-grow-1">
-                <a href="{% url 'aboutme' %}" class="{% if page == 'about' %}active{%endif%} p-3 arrow-after">
-                        À propos
-                </a>
-            </div>
+    <!-- Navbar PC -->
+    <div class="menu fixed-bottom d-none d-md-block" id="menu-pc">
+      <div class="d-flex justify-content-evenly border-top border-dark">
+        <div class="menu-item p-3 flex-grow-1 border-end border-dark">
+          <a
+            href="{% url 'blog'%}"
+            class="{% if page == 'blog' %}active{%endif%} p-3 arrow-after"
+          >
+            Blog
+          </a>
         </div>
+        <div
+          class="menu-item p-3 flex-grow-1"
+          style="border-left: 0px; border-right: 0px"
+        >
+          <a href="{% url 'index' %}" class="p-3 arrow-after"> Accueil </a>
+        </div>
+        <div class="menu-item p-3 flex-grow-1 border-start border-dark">
+          <a
+            href="{% url 'aboutme' %}"
+            class="{% if page == 'aboutme' %}active{%endif%} p-3 arrow-after"
+          >
+            À propos
+          </a>
+        </div>
+      </div>
     </div>
-    
-    <!-- <footer>
-        Inspiration : https://www.liesingers.com/
-    </footer> -->
 
+    <!-- Navbar Bigo -->
+    <div class="fixed-bottom d-md-none" style="background-color: var(--bg-color);" id="menu-tel">
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="border-top border-dark">
+            <div class="w-100 p-4 menu-item border-bottom border-dark">
+                <a 
+                    href="{% url 'index' %}" 
+                    class="p-3 arrow-after">Accueil</a>
+            </div>
+            <div class="w-100 p-4 menu-item border-bottom border-dark">
+                <a 
+                    href="{% url 'blog' %}" 
+                    class="{% if page == 'blog' %}active{%endif%} p-3 arrow-after">Blog</a>
+            </div>
+            <div class="w-100 p-4 menu-item">
+                <a 
+                    href="{% url 'aboutme' %}" 
+                    class="{% if page == 'aboutme' %}active{%endif%} p-3 arrow-after">À propos</a>
+            </div>
+
+        </div>
+      </div>
+
+      <button
+        class="p-0 w-100 border-0 border-top border-dark menu"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarToggleExternalContent"
+        aria-controls="navbarToggleExternalContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <div class="menu-item p-3 flex-grow-1">
+          <a href="#" class="arrow-after">Menu</a>
+        </div>
+      </button>
+    </div>
 
     {% if messages %}
     <div aria-live="polite" aria-atomic="true" class="position-relative">
-        <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-            {% for message in messages %}
-            <div class="toast align-items-center text-white bg-{% if message.tags == 'error' %}danger{%else%}{{message.tags}}{%endif%} border-0"
-                role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="d-flex">
-                    <div class="toast-body">
-                        {{message}}
-                    </div>
-                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-                        aria-label="Close"></button>
-                </div>
-            </div>
-            {%endfor%}
+      <div
+        class="toast-container position-fixed bottom-0 end-0 p-3"
+        style="z-index: 11"
+      >
+        {% for message in messages %}
+        <div
+          class="toast align-items-center text-white bg-{% if message.tags == 'error' %}danger{%else%}{{message.tags}}{%endif%} border-0"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <div class="d-flex">
+            <div class="toast-body">{{message}}</div>
+            <button
+              type="button"
+              class="btn-close btn-close-white me-2 m-auto"
+              data-bs-dismiss="toast"
+              aria-label="Close"
+            ></button>
+          </div>
         </div>
+        {%endfor%}
+      </div>
     </div>
     {%endif%}
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
-    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
     <script>
-        window.addEventListener("DOMContentLoaded", () => {
-            //Gestion des notifications
-            var toastElList = document.querySelectorAll('.toast')
+      window.addEventListener("DOMContentLoaded", () => {
+        //Gestion des notifications
+        var toastElList = document.querySelectorAll(".toast");
 
-            if (toastElList != undefined) {
-                let toast
+        if (toastElList != undefined) {
+          let toast;
 
-                //Crée et affiche les différents messages à l'écran
-                for (let i = 0; i < toastElList.length; i++) {
-                    toast = new bootstrap.Toast(toastElList[i], {
-                        delay: 7000
-                    })
-                    toast.show()
-                }
-            }
-        })
+          //Crée et affiche les différents messages à l'écran
+          for (let i = 0; i < toastElList.length; i++) {
+            toast = new bootstrap.Toast(toastElList[i], {
+              delay: 7000,
+            });
+            toast.show();
+          }
+        }
+
+        // Gestion des tooltips
+        const tooltipTriggerList = document.querySelectorAll(
+          '[data-bs-toggle="tooltip"]'
+        );
+        const tooltipList = [...tooltipTriggerList].map(
+          (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+        );
+      });
     </script>
 
     {% block scripts_bottom %}{% endblock %}
-
-</body>
-
+  </body>
 </html>

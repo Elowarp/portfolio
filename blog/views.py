@@ -15,7 +15,8 @@ from .models import Image, Post
 def index(request):
     articles = Post.objects.order_by("-pub_date")
     context = {
-        "articles": articles
+        "articles": articles,
+        "page": "blog"
     }
     return render(request, "blog/index.html", context)
 

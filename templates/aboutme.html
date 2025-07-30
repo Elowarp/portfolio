@@ -1,39 +1,91 @@
 <!--
  Contact : Elowan - elowarp@gmail.com
  Creation : 25-07-2025 17:28:15
- Last modified : 30-07-2025 10:44:56
+ Last modified : 30-07-2025 16:36:17
  File : about.html
 -->
 {% extends "base.html" %}
 {% block title %}À propos{% endblock %}
 
+{% load static %}
+
 {% block content %}
 <div class="container px-3 pt-4 fs-5">
-    <div class="row">
-        <div class="col-4">
-            <img src="" alt="Ma tete">
+    <h1 class="text-center fw-bold">À propos de moi</h1>
+    <div class="row my-4">
+        <div class="col-md-4 mb-4">
+            <img src="{% static 'images/pp.JPEG' %}" 
+                alt="Ma tête" class="img-thumbnail">
         </div>
-        <div class="col-8">
-            <p class="my-4">
-                Actuellement en étude à l'Ecole Normale Supériere de Lyon 
-                après trois ans de CPGE au lycée Thiers à Marseille, je compte
-                poursuivre des études tournées majoritairement vers les sciences
-                et l'informatique. Je pratique en parallèle le Parkour/Freerunning 
-                depuis plus de 6 ans, en plus de m'essayer à la batterie et à 
-                la guitare.
-            </p>
+        <div class="col-md-8">
+            <div class="mx-1">
+                <h4>Rapide présentation</h4>
+                <p>
+                    Actuellement en étude à
+                    <a href="https://www.ens-lyon.fr/" target="_blank">
+                        l'École Normale Supériere de Lyon
+                    </a>
+                    après trois ans de CPGE
+                    <a href="https://www.site.ac-aix-marseille.fr/lyc-thiers/spip/?" target="_blank">
+                        au lycée Thiers à Marseille
+                    </a>
+                    , je compte
+                    poursuivre des études tournées majoritairement vers les sciences
+                    et l'informatique. Je pratique en parallèle le Parkour/Freerunning
+                    depuis plus de 6 ans, en plus de m'essayer à la batterie et à
+                    la guitare.
+                </p>
+                <p>
+                    Depuis maintenant quelques années, je prends beaucoup de plaisir à
+                    créer des vidéos courtes, pour partager ce que j'aime comme des
+                    petits projets que j'ai pu faire
+                    (<a target="_blank" href="https://youtu.be/8XdfuNv18dg?si=f06wujRTuUvko7gg">
+                        Hackintosh</a>, 3D Printer, Snake, ...). Même si mon passage en
+                    prépa a nettement stoppé cette activité...
+                </p>
+            </div>
 
-            <p>
-                Depuis maintenant quelques années, je prends beaucoup de plaisir à 
-                créer des vidéos courtes, pour partager ce que j'aime comme des
-                petits projets que j'ai pu faire 
-                (<a target="_blank" href="https://youtu.be/8XdfuNv18dg?si=f06wujRTuUvko7gg">
-                Hackintosh</a>, 3D Printer, Snake, ...). Même si mon passage en 
-                prépa a nettement stoppé cette activité...
-            </p>
 
         </div>
     </div>
-    
+
+    <div class="row mb-4">
+        <h4>Mes connexions</h4>
+        <div class="col-md-4">
+            <a href="https://github.com/elowarp" target="_blank">
+                Github : Elowarp
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="https://instagram.com/elowarp" target="_blank">
+                Instagram : Elowarp
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="mailto://elowarp[at]gmail[dot]com" target="_blank">
+                Mail : elowarp [at] gmail [dot] com
+            </a>
+        </div>
+
+    </div>
+
+    <div class="row mb-4">
+       <h4>Mon cv : </h4>
+       <p>À venir.</p> 
+    </div>
+
+    <div class="row mb-4">
+        <p>
+            Ce site internet est une production de <span class="highlight">Elowan H</span> en 
+            s'inspirant du site de 
+            <a href="https://www.liesingers.com/" target="_blank">Simon Liesinger</a>
+            tout en apportant sa touche personnelle. 
+        </p>
+
+        <a href="{% url 'legal' %}" target="_blank">Mentions Légales</a>
+    </div>
+
 </div>
 {% endblock %}
