@@ -4,7 +4,7 @@ from django.http import Http404
 
 # Create your views here.
 def index(request):
-    articles = Post.objects.order_by("-pub_date").filter(is_visible=True)[:4]
+    articles = Post.objects.order_by("-pub_date")[:4]
 
     return render(request, "index.html", 
         {'articles': articles, "page": "index"})

@@ -11,10 +11,10 @@
     </div>
     <hr>
 
-
     {% if articles %}
     <div>
         {% for article in articles %}
+        {% if article.is_visible %}
         <div class="row my-3">
             <div class="col-md-8">
                 <h4 class="mb-3"><a href="{% url 'blog_read' article.slug_name %}" class="arrow-after">
@@ -27,16 +27,17 @@
                 <img src="{{ MEDIA_URL }}{{ article.banner }}" class="img-thumbnail" alt="{{ article.title }}"
                     loading="lazy">
             </div>
-            <div>
-                <hr>
-                {% endfor %}
-                <p class="text-center">Fin :)</p>
-            </div>
-            {% else %}
-            <div>
-                <p>Aucun article disponible.</p>
-            </div>
-            {% endif %}
-
         </div>
-        {% endblock %}
+        <hr>
+        {%endif%}
+        {% endfor %}
+        <p class="text-center">Fin :)</p>
+    </div>
+    {% else %}
+    <div>
+        <p>Aucun article disponible.</p>
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}
