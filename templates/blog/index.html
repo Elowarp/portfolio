@@ -2,26 +2,33 @@
 {% block title %}Le blog{% endblock %}
 
 {% block content %}
-<div class="container px-3 pt-4 fs-5">
+<div class="container px-3 pt-4">
     <h1 class="text-center fw-bold">Elo's blog</h1>
-    <div class="row border-bottom fs-5 fw-light">
+    <div class="row border-bottom fs-5">
         <p>C'est bien ici que vous pouvez retrouver un peu tout ce que j'ai fait 
             et dont j'ai trouvé intéressant de discuter durant les quelques dernières années !
         </p>
     </div>
+    <hr>
+
 
     {% if articles %}
     <div>
         {% for article in articles %}
             <div class="row my-3">
                 <div class="col-8">
-                    <h5><a href="{% url 'read_article' article.slug_name %}">{{ article.title }}</a></h5>
+                    <h4 class="mb-3"><a href="{% url 'blog_read' article.slug_name %}" class="arrow-after">{{ article.title }}</a></h4>
+                    <p>{{ article.text|truncatechars:250}}</p>
+                    <p>Posté le {{ article.pub_date | date:'d N Y' }}, modifié le {{ article.last_modified_date | date:'d N Y' }}.</p>
                 </div>
-                <div class="col-4">
+                <div class="col-1"></div>
+                <div class="col-3">
                     <img src="{{ MEDIA_URL }}{{ article.banner }}" class="img-thumbnail" alt="{{ article.title }}">
                 </div>
             <div>
+            <hr>
         {% endfor %}
+        <p class="text-center">Fin :)</p>
     </div>
     {% else %}
     <div>
