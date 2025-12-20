@@ -23,6 +23,6 @@ def build(request):
     if expected_signature != request.headers["X-Hub-Signature-256"]:
         return HttpResponse(status=403)
 
-    print("Launching building !")
+    print("Building project")
     process = os.system("bash build.sh&") # Launch the build script in the background
     return HttpResponse(status=200)
