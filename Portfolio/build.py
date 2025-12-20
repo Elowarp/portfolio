@@ -1,16 +1,21 @@
-import subprocess
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+import subprocess
 import dotenv
 import os
+import json
 
 dotenv.load_dotenv()
 
 # Url to rebuild the project
+@csrf_exempt
 def build(request):
-    BUILDING_KEY = os.getenv("BUILDING_KEY")
-    key = request.GET.get('k', "")
+    if request.method != "POST": return HttpResponse(status=404)
 
-    if (BUILDING_KEY != key): return HttpResponse(status=401)
+    BUILDING_KEY = os.getenv("BUILDING_KEY")
+    key = json.loads(request.body)["hook"]["config"]["secret"]
+
+    if (BUILDING_KEY != key): return HttpResponse(status=403)
 
     print("Building portfolio")
     process = subprocess.run(["bash", "build.sh"])
@@ -19,5 +24,5 @@ def build(request):
         return HttpResponse(status=500)
 
 
-    print("End building !")
+    print("Building completed !")
     return HttpResponse(status=200)

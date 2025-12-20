@@ -1,15 +1,19 @@
-#!/bin/bash
+#!/bin/bash 
+set -e #Stops the script at all command that doesn't complete
+
 echo "Retriving git"
 git pull
 
+set +e #Allows command to have errors
 source .venv/bin/activate
 killall gunicorn 
 
+set -e
 echo "Building tables"
-exec python manage.py migrate --settings=Portfolio.settings.development
+python manage.py migrate --settings=Portfolio.settings.production --noinput
 
 echo "Collecting static"
-exec python manage.py collectstatic --settings=Portfolio.settings.development --noinput
+python manage.py collectstatic --settings=Portfolio.settings.production --noinput
 
 echo "Launching app"
-exec gunicorn -c config/gunicorn/prod.py
+gunicorn -c config/gunicorn/prod.py

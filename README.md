@@ -31,6 +31,7 @@ DB_PASSWORD=
 DB_CLUSTER=
 DB_NAME=
 DJANGO_SECRET_KEY=
+BUILDING_KEY=
 ```
 
 Commande pour lancer le serveur comme en production :
@@ -40,6 +41,8 @@ gunicorn -c config/gunicorn/prod.py
 ```
 
 _Note: Vous aurez surement des problèmes à charger les fichiers statiques, c'est parce qu'il va les chercher à des endroits bien spécial du système, cf la partie Nginx._
+
+Le fichier `build.sh` établi la routine qui pull ce repo, recompile le site internet et le lance.
 
 ### Setup Nginx
 
@@ -66,5 +69,5 @@ Rendre disponible les fichiers statiques par le serveur web :
 ```bash
 sudo mkdir -pv /var/www/portfolio/static/
 sudo chown -R $USER /var/www/portfolio/
-python manage.py collectstatic --settings=Portfolio.settings.development
+python manage.py collectstatic --settings=Portfolio.settings.production
 ```
