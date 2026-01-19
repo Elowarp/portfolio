@@ -22,6 +22,8 @@ def index(request):
 
 def read_article(request, slug_name):
     article = get_object_or_404(Post, slug_name=slug_name)
+    article.view_count += 1
+    article.save()
     return render(request, "blog/read.html", {"article":article})
 
 @login_required(login_url="/")

@@ -16,6 +16,7 @@ class Post(models.Model):
     last_modified_date = models.DateTimeField("date last modified", 
                                               auto_now=True)
     is_visible = models.BooleanField("Est visible", default=False, )
+    view_count = models.IntegerField(default=0)
     
     def __str__(self):
         return self.slug_name

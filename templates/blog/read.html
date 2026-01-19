@@ -72,7 +72,10 @@
         </div>
         {% endif %}
         <div id="meta" class="row mt-3 text-end">
-            <span class="text-muted">Le <span class="fw-bold">{{article.last_modified_date}}</span>
+            <span class="text-muted">
+                Le <span class="fw-bold">{{article.last_modified_date}}</span>.
+                {% if user.is_authenticated %} Vu <span class="fw-bold">{{article.view_count}}</span> fois.{% endif %}
+            </span>
         </div>
         <div id="content" class="row mt-3">{{ article.text | url_media:article.slug_name }}</div>
 
