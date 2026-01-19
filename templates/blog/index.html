@@ -18,8 +18,8 @@
         <div class="row my-3">
             {% if article.banner %}
             <div class="col-md-8">
-                <h4 class="mb-3"><a href="{% url 'blog_read' article.slug_name %}" class="arrow-after">
-                    {{ article.title }}</a></h4>
+                <h5 class="mb-3"><a href="{% url 'blog_read' article.slug_name %}" class="arrow-after">
+                    {{ article.title }}</a></h5>
                 <p>{{ article.text|truncatechars:250}}</p>
                 <p>Posté le {{ article.pub_date | date:'d N Y' }}, modifié le {{ article.last_modified_date | date:'d N Y' }}.</p>
             </div>
