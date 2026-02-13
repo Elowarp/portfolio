@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib import admin
 from django.contrib.auth.models import User
 
 def upload_banner(instance, filename):
@@ -20,6 +21,9 @@ class Post(models.Model):
     
     def __str__(self):
         return self.slug_name
+    
+class PostAdmin(admin.ModelAdmin):
+    list_display = ["title", "author", "pub_date", "view_count", "is_visible"]
     
 def get_image_filename(instance, filename):
     slug = instance.post.slug_name
