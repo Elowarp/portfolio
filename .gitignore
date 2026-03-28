@@ -156,3 +156,5 @@ cython_debug/
 ./media/
 .venv_debian/
 .venv_311/
+
+.DS*
