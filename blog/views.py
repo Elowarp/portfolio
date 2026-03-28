@@ -30,7 +30,7 @@ def read_article(request, slug_name):
 def post(request):
     # Extra = nombre de photos maximum qu'on peut upload
     ImageFormSet = modelformset_factory(Image,
-                                        form=ImageForm, extra=6)
+                                        form=ImageForm, extra=15)
     
     if request.method == 'POST':
         postForm = PostForm(request.POST, request.FILES)
